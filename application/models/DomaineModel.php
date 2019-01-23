@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Model_product extends CI_Model {
+class DomaineModel extends CI_Model {
 
     function __construct()
     {

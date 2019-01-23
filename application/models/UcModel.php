@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Model_product extends CI_Model {
+class UcModel extends CI_Model {
 
     function __construct()
     {
