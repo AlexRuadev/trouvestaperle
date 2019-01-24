@@ -5,7 +5,7 @@
 <?php echo form_open('Utilisateurs/create'); ?>
 
 
-<label for="nom">Title</label>
+<label for="nom">Nom</label>
 <input type="input" name="nom" /><br />
 <label for="prenom">prenom</label>
 <input type="input" name="prenom" /><br />

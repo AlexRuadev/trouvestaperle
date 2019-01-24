@@ -2,50 +2,28 @@
 
 class CompetencesModel extends CI_Model {
 
+    //Determine la table utilisée
     function __construct()
     {
         parent::__construct();
-        $this->table = "product";
+        $this->table = "ttp_competences";
     }
 
+    //Recupere toutes les competences
     function get_all()
     {
         return $this->db->get($this->table);
     }
 
-    function get_one($id)
+    //Recupere une competence
+    function get_one($competences_id)
     {
-        $this->db->select("id, title")
+        $this->db->select("competences_id, competences_name")
             ->from($this->table)
-            ->where("id", $id)
+            ->where("competences_id", $competences_id)
             ->limit(1);
 
         return $this->db->get();
-    }
-
-    function post($title)
-    {
-        $data = array(
-            "title" => $title,
-        );
-
-        $this->db->insert($this->table, $data);
-    }
-
-    function put($id, $title)
-    {
-        $data = array(
-            "title" => $title
-        );
-
-        $this->db->where("id", $id)
-            ->update($this->table, $data);
-    }
-
-    function delete($id)
-    {
-        $this->db->where_in("id", $id)
-            ->delete($this->table);
     }
 
 }

@@ -2,50 +2,49 @@
 
 class UcModel extends CI_Model {
 
+    //Choix de la table
     function __construct()
     {
         parent::__construct();
-        $this->table = "product";
+        $this->table = "ttp_uc";
     }
 
-    function get_all()
+    //Recupere le niveau
+    function get_one($ttp_cv_cv_id, $ttp_competences_competence_id)
     {
-        return $this->db->get($this->table);
-    }
-
-    function get_one($id)
-    {
-        $this->db->select("id, title")
+        $this->db->select('uc_niv')
             ->from($this->table)
-            ->where("id", $id)
-            ->limit(1);
+            ->where("ttp_cv_cv_id", $ttp_cv_cv_id)
+            ->where("ttp_competences_competence_id", $ttp_competences_competence_id);
+
 
         return $this->db->get();
     }
 
-    function post($title)
+    //Insertion du niveau
+    function post($uc_niv,$ttp_cv_cv_id,$ttp_competences_competence_id)
     {
         $data = array(
-            "title" => $title,
+            "uc_niv" => $uc_niv,
+            "ttp_cv_cv_id" => $ttp_cv_cv_id,
+            "ttp_competences_competence_id" => $ttp_competences_competence_id
         );
 
-        $this->db->insert($this->table, $data);
+        $this->db->insert($this->table, $data)
+                ->where("ttp_cv_cv_id", $ttp_cv_cv_id)
+                ->where("ttp_competences_competence_id", $ttp_competences_competence_id);
     }
 
-    function put($id, $title)
+    //Modification du niveau
+    function put($ttp_cv_cv_id,$ttp_competences_competence_id, $uc_niv)
     {
         $data = array(
-            "title" => $title
+            "uc_niv" => $uc_niv
         );
 
-        $this->db->where("id", $id)
+        $this->db->where("ttp_cv_cv_id", $ttp_cv_cv_id)
+                    ->where("ttp_competences_competence_id", $ttp_competences_competence_id)
             ->update($this->table, $data);
-    }
-
-    function delete($id)
-    {
-        $this->db->where_in("id", $id)
-            ->delete($this->table);
     }
 
 }

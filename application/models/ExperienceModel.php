@@ -2,49 +2,65 @@
 
 class ExperienceModel extends CI_Model {
 
+    //Determine la table utilisée
     function __construct()
     {
         parent::__construct();
-        $this->table = "product";
+        $this->table = "ttp_experiences";
     }
-
+    //Recupere toutes les expériences
     function get_all()
     {
         return $this->db->get($this->table);
     }
 
-    function get_one($id)
+    //Recupere une experience d'un cv
+    function get_one($ttp_cv_cv_id)
     {
-        $this->db->select("id, title")
+        $this->db->select("experiences_id, experiences_titre, experiences_description, experiences_niv, experiences_debut, experiences_fin, ttp_domaines_domaines_id")
             ->from($this->table)
-            ->where("id", $id)
+            ->where("ttp_cv_cv_id", $ttp_cv_cv_id)
             ->limit(1);
 
         return $this->db->get();
     }
 
-    function post($title)
+    //Insertion experiences en bdd
+    function post($experiences_titre, $experiences_description, $experiences_niv, $experiences_debut, $experiences_fin,$ttp_domaines_domaines_id,$ttp_cv_cv_id)
     {
         $data = array(
-            "title" => $title,
+            "experiences_titre" => $experiences_titre,
+            "experiences_description" => $experiences_description,
+            "experiences_niv" => $experiences_niv,
+            "experiences_debut" => $experiences_debut,
+            "experiences_fin" => $experiences_fin,
+            "ttp_domaines_domaines_id" => $ttp_domaines_domaines_id
         );
 
-        $this->db->insert($this->table, $data);
+        $this->db->insert($this->table, $data)
+            ->where("ttp_cv_cv_id", $ttp_cv_cv_id);
     }
 
-    function put($id, $title)
+    //Modifie une experience dans un cv
+    function put($experiences_id, $experiences_titre, $experiences_description, $experiences_niv, $experiences_debut, $experiences_fin, $ttp_cv_id)
     {
         $data = array(
-            "title" => $title
+            "experiences_titre" => $experiences_titre,
+            "experiences_description" => $experiences_description,
+            "experiences_niv" => $experiences_niv,
+            "experiences_debut" => $experiences_debut,
+            "experiences_fin" => $experiences_fin
         );
 
-        $this->db->where("id", $id)
+        $this->db-> where('experiences_id',$experiences_id)
+            ->where("ttp_cv_id", $ttp_cv_id)
             ->update($this->table, $data);
     }
 
-    function delete($id)
+    //Supprime une experiences
+    function delete($experiences_id)
     {
-        $this->db->where_in("id", $id)
+        $this->db->where_in("experiences_id", $experiences_id)
             ->delete($this->table);
     }
 

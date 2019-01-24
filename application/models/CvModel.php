@@ -20,32 +20,27 @@ class CvModel extends CI_Model {
 	}
 
 	//Insertion du cv en BDD
-	function post($date,$id)
+	function post()
 	{
-		$data = array(
-			now() => $date,
-		);
+		$data = array();
 
 		$this->db->insert($this->table, $data)
-			->where("ttp_utilisateurs_utilisateurs_id", $id);
-
+			->where("ttp_utilisateurs_utilisateurs_id");
 	}
 
 	//Modif données CV
-	function put($id, $title)
+	function put($cv_id)
 	{
-		$data = array(
-			"title" => $title
-		);
+		$data = array();
 
-		$this->db->where("id", $id)
+		$this->db->where("cv_id", $cv_id)
 			->update($this->table, $data);
 	}
 
 	//Possibilite de supression du CV
-	function delete($id)
+	function delete($cv_id)
 	{
-		$this->db->where_in("cv_id", $id)
+		$this->db->where_in("cv_id", $cv_id)
 			->delete($this->table);
 	}
 

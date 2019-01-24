@@ -2,46 +2,63 @@
 
 class FormationModel extends CI_Model {
 
+    //Determine la table utilisée
     function __construct()
     {
         parent::__construct();
-        $this->table = "product";
+        $this->table = "ttp_formations";
     }
 
+    //Recupere toutes les formations
     function get_all()
     {
         return $this->db->get($this->table);
     }
 
-    function get_one($id)
+    //Recupere les formations d'un cv
+    function get_one($ttp_cv_cv_id)
     {
-        $this->db->select("id, title")
+        $this->db->select("formations_id, formations_titre, formations_description, formations_niv, formations_debut, formations_fin, ttp_domaines_domaines_id")
             ->from($this->table)
-            ->where("id", $id)
+            ->where("ttp_cv_cv_id", $ttp_cv_cv_id)
             ->limit(1);
 
         return $this->db->get();
     }
 
-    function post($title)
+    //Insertion formations en bdd
+    function post($formations_titre, $formations_description, $formations_niv, $formations_debut, $formations_fin,$ttp_domaines_domaines_id,$ttp_cv_cv_id)
     {
         $data = array(
-            "title" => $title,
+            "formations_titre" => $formations_titre,
+            "formations_description" => $formations_description,
+            "formations_niv" => $formations_niv,
+            "formations_debut" => $formations_debut,
+            "formations_fin" => $formations_fin,
+            "ttp_domaines_domaines_id" => $ttp_domaines_domaines_id
         );
 
-        $this->db->insert($this->table, $data);
+        $this->db->insert($this->table, $data)
+        ->where("ttp_cv_cv_id", $ttp_cv_cv_id);
     }
 
-    function put($id, $title)
+    //Modifie une formation dans un cv
+    function put($formations_id, $formations_titre, $formations_description, $formations_niv, $formations_debut, $formations_fin,$ttp_domaines_domaines_id,$ttp_cv_cv_id)
     {
         $data = array(
-            "title" => $title
+            "formations_titre" => $formations_titre,
+            "formations_description" => $formations_description,
+            "formations_niv" => $formations_niv,
+            "formations_debut" => $formations_debut,
+            "formations_fin" => $formations_fin,
         );
 
-        $this->db->where("id", $id)
+        $this->db->where("formations_id", $formations_id)
+            ->where("ttp_domaines_domaines_id", $ttp_domaines_domaines_id)
             ->update($this->table, $data);
     }
 
+    //Supprime une formation
     function delete($id)
     {
         $this->db->where_in("id", $id)

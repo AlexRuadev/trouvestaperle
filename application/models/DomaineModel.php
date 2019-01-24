@@ -2,50 +2,28 @@
 
 class DomaineModel extends CI_Model {
 
+    //Determine la table utilisée
     function __construct()
     {
         parent::__construct();
-        $this->table = "product";
+        $this->table = "ttp_domaines";
     }
 
+    //Recupere toute les domaines
     function get_all()
     {
         return $this->db->get($this->table);
     }
 
-    function get_one($id)
+    //Recupere un domaine
+    function get_one($domaines_id)
     {
-        $this->db->select("id, title")
+        $this->db->select("domaines_id, domaines_name")
             ->from($this->table)
-            ->where("id", $id)
+            ->where("domaines_id", $domaines_id)
             ->limit(1);
 
         return $this->db->get();
-    }
-
-    function post($title)
-    {
-        $data = array(
-            "title" => $title,
-        );
-
-        $this->db->insert($this->table, $data);
-    }
-
-    function put($id, $title)
-    {
-        $data = array(
-            "title" => $title
-        );
-
-        $this->db->where("id", $id)
-            ->update($this->table, $data);
-    }
-
-    function delete($id)
-    {
-        $this->db->where_in("id", $id)
-            ->delete($this->table);
     }
 
 }
