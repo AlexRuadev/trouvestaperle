@@ -57,7 +57,9 @@ class ExperienceModel extends CI_Model {
             ->update($this->table, $data);
     }
 
+
     //Supprime une experience
+
     function delete($experiences_id)
     {
         $this->db->where_in("experiences_id", $experiences_id)
