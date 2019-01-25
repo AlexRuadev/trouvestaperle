@@ -1,6 +1,4 @@
-<?php ?>
 <div class="margeform">
-<!-- multistep form -->
 <form id="msform">
     <!-- progressbar -->
     <ul id="progressbar">
