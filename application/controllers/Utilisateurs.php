@@ -57,7 +57,7 @@ class Utilisateurs extends CI_Controller
     {
 
         $this->load->helper('form');
-
+        print_r($_SESSION);
 
         if (isset($_POST['submitted'])) {
 
@@ -69,7 +69,7 @@ class Utilisateurs extends CI_Controller
 
                 $this->load->view('login');
 
-                var_dump($_POST);
+
 
             } else {
 
@@ -79,18 +79,25 @@ class Utilisateurs extends CI_Controller
 
                 $user = $this->UtilisateursModel->test_mail($mail);
 
-
                 if (isset($user)) {
-                    if (!password_verify($motdepasse, $user[0]['utilisateurs_motdepasse'])) {
+                    if (password_verify($motdepasse, $user[0]['utilisateurs_motdepasse'])) {
 
-                        $this->form_validation->set_message('rule', 'mauvais mot de passe');
+
+                        $newdata = array(
+                           'utilisateurs_nom' => $user[0]['utilisateurs_nom'],
+                           'utilisateurs_mail' => $user[0]['utilisateurs_mail'],
+                           'logged_in' => true
+                       );
+
+                       $this->session->set_userdata($newdata);
+
+        print_r($_SESSION);
 
                     } else {
 
-                        $this->session->set_userdata('utilisateurs_nom', "eee".$user[0]['utilisateurs_nom']);
-                        $this->session->set_userdata('utilisateurs_mail', "zzzeee".$user[0]['utilisateurs_mail']);
 
 
+                        $this->form_validation->set_message('rule', 'mauvais mot de passe');
 
                     }
                 }
@@ -104,4 +111,11 @@ class Utilisateurs extends CI_Controller
         }
 
     }
+
+    public function deco(){
+
+        $this->session->sess_destroy();
+        $this->load->view('login');
+    }
 }
+
