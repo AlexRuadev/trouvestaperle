@@ -73,9 +73,10 @@
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-<script type="text/javascript" src="js/navbar.js"></script>
-<script type="text/javascript" src="js/inscription.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/navbar.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/inscription.js"></script>
 
 
 

@@ -1,5 +1,5 @@
 <?php ?>
-
+<div class="margeform">
 <!-- multistep form -->
 <form id="msform">
     <!-- progressbar -->
@@ -37,3 +37,4 @@
         <input type="submit" name="submit" class="submit action-button" value="Submit" />
     </fieldset>
 </form>
+</div>
