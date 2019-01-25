@@ -1,5 +1,3 @@
-<?php ?>
-
 <!-- multistep form -->
 <form id="msform">
     <!-- progressbar -->
