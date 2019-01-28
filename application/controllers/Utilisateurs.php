@@ -15,11 +15,12 @@ class Utilisateurs extends CI_Controller
         $this->load->model("UtilisateursModel");
     }
 
+
+    //Controller du formulaires d'inscription
     public function create()
     {
 
         $this->load->helper('form');
-        $this->load->library('form_validation');
         $this->load->helper('date');
         $this->db->set('utilisateurs_created_at ', 'NOW()', false);
 
@@ -52,66 +53,56 @@ class Utilisateurs extends CI_Controller
         }
     }
 
-
+    //Controller du formulaire de connexion
     public function login()
     {
 
+        $data = new stdClass();
         $this->load->helper('form');
-        print_r($_SESSION);
 
-        if (isset($_POST['submitted'])) {
+        $mail = $this->input->post('mail');
+        $motdepasse = $this->input->post('motdepasse');
 
-            $this->form_validation->set_rules('mail', 'mail', 'required');
-            $this->form_validation->set_rules('motdepasse', 'motdepasse', 'required');
-
-
-            if ($this->form_validation->run() === FALSE) {
-
-                $this->load->view('login');
+        $user = $this->UtilisateursModel->test_mail($mail);
 
 
+        $this->form_validation->set_rules('mail', 'mail', 'required');
+        $this->form_validation->set_rules('motdepasse', 'motdepasse',  'required');
 
-            } else {
+        if ($this->form_validation->run() === FALSE) {
 
-
-                $mail = $this->input->post('mail');
-                $motdepasse = $this->input->post('motdepasse');
-
-                $user = $this->UtilisateursModel->test_mail($mail);
-
-                if (isset($user)) {
-                    if (password_verify($motdepasse, $user[0]['utilisateurs_motdepasse'])) {
-
-
-                        $newdata = array(
-                           'utilisateurs_nom' => $user[0]['utilisateurs_nom'],
-                           'utilisateurs_mail' => $user[0]['utilisateurs_mail'],
-                           'logged_in' => true
-                       );
-
-                       $this->session->set_userdata($newdata);
-
-        print_r($_SESSION);
-
-                    } else {
-
-
-
-                        $this->form_validation->set_message('rule', 'mauvais mot de passe');
-
-                    }
-                }
-                $this->load->view('success');
-            }
-
-
-
-        }else{
             $this->load->view('login');
-        }
 
+        } else {
+
+            if (isset($user[0]['utilisateurs_mail'])) {
+
+                if (password_verify($motdepasse, $user[0]['utilisateurs_motdepasse'])) {
+
+
+                    $newdata = array(
+                        'utilisateurs_nom' => $user[0]['utilisateurs_nom'],
+                        'utilisateurs_mail' => $user[0]['utilisateurs_mail'],
+                        'logged_in' => true
+                    );
+                    $this->session->set_userdata($newdata);
+                    $this->load->view('success');
+
+                } else {
+
+                    $data->error = 'Email ou mot de passe invalide.';
+                    $this->load->view('login', $data);
+                }
+            } else{
+                $data->error = 'Email ou mot de passe invalide.';
+                $this->load->view('login', $data);
+            }
+        }
     }
 
+
+
+    //Deconnexion
     public function deco(){
 
         $this->session->sess_destroy();
