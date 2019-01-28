@@ -1,10 +1,10 @@
 
 
 <footer>
-<div class="dummy_page">
+    <!--<div class="dummy_page">
 
-</div>
-<!-- FOOTER START -->
+    </div>
+    <!-- FOOTER START -->
 <div class="footer">
     <div class="contain">
         <div class="col">
@@ -72,12 +72,15 @@
 </footer>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/ins.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/navbar.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/inscription.js"></script>
-<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
 </body>
 </html>
