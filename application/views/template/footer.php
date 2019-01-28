@@ -79,6 +79,7 @@
 <script type="text/javascript" src="<?php echo base_url()?>js/ins.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/navbar.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/inscription.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>/js/modal.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
 
