@@ -4,7 +4,7 @@
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">Informations personnelles</li>
-                <li>complémentaire</li>
+                <li>Experiences & competences</li>
                 <li>Personal Details</li>
             </ul>
             <!-- fieldsets -->
@@ -16,26 +16,30 @@
                 <abbr title="Date de naissance">
                 <input type="date" name="ddn" placeholder="Date de naissance" />
                 </abbr>
-                <input type="gjhgjhghjgjgjhgjhgjhghjgjhgjhgbutton" name="next" class="next action-button" value="Next" />
+                <input type="text" name="phone" placeholder="Telephone" />
+
+                <textarea name="address" placeholder="Adresse"></textarea>
+                <input type="button" name="next" class="next action-button" value="Suivant" />
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">Social Profiles</h2>
-                <h3 class="fs-subtitle">Your presence on the social network</h3>
-                <input type="text" name="twitter" placeholder="Twitter" />
-                <input type="text" name="facebook" placeholder="Facebook" />
-                <input type="text" name="gplus" placeholder="Google Plus" />
-                <input type="button" name="previous" class="previous action-button" value="Previous" />
-                <input type="button" name="next" class="next action-button" value="Next" />
+                <h2 class="fs-title">Experiences</h2>
+                <h3 class="fs-subtitle">Vos experiences significatives</h3>
+                <input type="text" name="twitter" placeholder="Experience1" />
+                <input type="text" name="facebook" placeholder="Experience2" />
+                <h2 class="fs-title">Competences</h2>
+                <input type="text" name="facebook" placeholder="Competence" />
+                <input type="text" name="gplus" placeholder="Competence" />
+                <input type="button" name="previous" class="previous action-button" value="Precedent" />
+                <input type="button" name="next" class="next action-button" value="Suivant" />
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">Personal Details</h2>
-                <h3 class="fs-subtitle">We will never sell it</h3>
-                <input type="text" name="fname" placeholder="First Name" />
-                <input type="text" name="lname" placeholder="Last Name" />
-                <input type="text" name="phone" placeholder="Phone" />
-                <textarea name="address" placeholder="Address"></textarea>
-                <input type="button" name="previous" class="previous action-button" value="Previous" />
-                <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                <h2 class="fs-title">Diplomes</h2>
+                <h3 class="fs-subtitle">Diplomes et formations obtenus</h3>
+                <input type="text" name="fname" placeholder="Nom du diplome" />
+                <input type="text" name="lname" placeholder="Nom de la formation" />
+
+                <input type="button" name="previous" class="previous action-button" value="Precedent" />
+                <input type="submit" name="submit" class="submit action-button" value="Convirmer" />
             </fieldset>
         </form>
     </div>
