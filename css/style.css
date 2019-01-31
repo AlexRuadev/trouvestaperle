@@ -99,6 +99,22 @@ body {
     }
 }
 
+    /*.navbar-toggle {*/
+        /*background: coral;*/
+    /*}*/
+
+
+    ..navbar-toggle collapsed {
+        color: white;
+    }
+
+    /*.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {*/
+    /*background: coral;*/
+/*}*/
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
 /* # Hover Link Effect
 ================================ */
 @media (min-width: 768px) {
@@ -115,12 +131,24 @@ body {
         transform: translateY(-10px);
     }
 
+
+
     .navbar-nav>li>a:hover::after,
     .navbar-nav>li>a:focus::after {
         height: 2px;
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: coral;
+    transition: .5s;
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+
 }
 
 /* # Social menu
@@ -150,11 +178,14 @@ body {
 #top-social-menu li a {
     text-decoration: none;
     color: #2E1C05;
+
 }
 
 #top-social-menu li a:hover {
     text-decoration: none;
-    color: #543A1A;
+    color: coral;
+    transition: .5s;
+
 }
 
 #top-social-menu i {
@@ -163,10 +194,6 @@ body {
     transition: all 0.2s ease-in;
 }
 
-#top-social-menu i:hover {
-    text-decoration: none;
-    color: #543A1A;
-}
 
 
 
@@ -372,13 +399,17 @@ body {
 
 .buttonmodal {
     background: coral;
+
     padding: 1em 2em;
     color: white;
-    border: 0;
+    border: 1px;
 }
 
 .buttonmodal:hover {
-    background: darkgray;
+    background: rgb(221,104,52);
+    transition: .5s;
+    border-radius: 5px;
+
 }
 
 .modal {
@@ -461,7 +492,7 @@ a{color:inherit;text-decoration:none}
     height:100%;
     position:absolute;
     padding:30px 20px 10px 20px;
-    background:rgba(40,57,101,.6);
+    background:rgba(52,76,135,.6);
     border-radius: 20px;
 
 }
@@ -715,3 +746,6 @@ a{color:inherit;text-decoration:none}
 .clear:before, .clear:after {content: ' ';display:table;}
 .clear:after {clear:both}
 .clear {zoom:1;}
+
+
+
