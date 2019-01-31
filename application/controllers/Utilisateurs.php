@@ -38,7 +38,9 @@ class Utilisateurs extends CI_Controller
 
         if ($this->form_validation->run() === FALSE) {
 
-            $this->load->view('inscription');
+            $this->load->view('template/header.php');
+            $this->load->view('formulaire_cv.php');
+            $this->load->view('template/footer.php');
 
         } else {
             $hash = password_hash($this->input->post("motdepasse"), PASSWORD_DEFAULT);
