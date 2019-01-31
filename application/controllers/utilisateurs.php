@@ -22,7 +22,7 @@ class utilisateurs extends CI_Controller {
     {
         $this->load->helper('url');
         $this->load->view('template/header.php');
-        $this->load->view('formulaire_inscription.php');
+        $this->load->view('formulaire_cv.php');
         $this->load->view('template/footer.php');
 
     }
