@@ -230,11 +230,6 @@ body {
 
 /*custom font*/
 
-
-
-body {
-    background-color: #494C55;
-}
 /*form styles*/
 #msform {
     width: 400px;
@@ -246,7 +241,7 @@ body {
     background: white;
     border: 0 none;
     border-radius: 3px;
-    box-shadow: 0 0 15px 2px ;
+    box-shadow: 0 0 60px 2px black;
     padding: 20px 30px;
     box-sizing: border-box;
     width: 80%;
@@ -350,8 +345,11 @@ body {
     color: white;
 }
 .margeform{
-    margin-top: 15%;
     height: 700px;
+    padding-top: 30px;
+}
+.ddn{
+    text-decoration: none;
 }
 
 
