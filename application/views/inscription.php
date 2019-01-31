@@ -6,10 +6,10 @@
 <label for="nom">Nom</label>
 <input type="text" name="nom" /><br />
 
-<label for="prenom">prenom</label>
+<label for="prenom">Prenom</label>
 <input type="text" name="prenom" /><br />
 
-<label for="mail">mail</label>
+<label for="mail">Email</label>
 <input type="email" name="mail" /><br />
 
 <label for="motdepasse">motdepasse</label>

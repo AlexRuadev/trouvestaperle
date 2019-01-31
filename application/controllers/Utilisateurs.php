@@ -11,17 +11,13 @@ class Utilisateurs extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
         $this->load->model("UtilisateursModel");
     }
-
 
     //Controller du formulaires d'inscription
     public function create()
     {
 
-        $this->load->helper('form');
-        $this->load->helper('date');
         $this->db->set('utilisateurs_created_at ', 'NOW()', false);
 
         $this->form_validation->set_rules('nom', 'nom', 'required');
@@ -58,7 +54,6 @@ class Utilisateurs extends CI_Controller
     {
 
         $data = new stdClass();
-        $this->load->helper('form');
 
         $mail = $this->input->post('mail');
         $motdepasse = $this->input->post('motdepasse');
@@ -79,8 +74,8 @@ class Utilisateurs extends CI_Controller
 
                 if (password_verify($motdepasse, $user[0]['utilisateurs_motdepasse'])) {
 
-
                     $newdata = array(
+                        'utilisateurs_id' => $user[0]['utilisateurs_id'],
                         'utilisateurs_nom' => $user[0]['utilisateurs_nom'],
                         'utilisateurs_mail' => $user[0]['utilisateurs_mail'],
                         'logged_in' => true
@@ -100,13 +95,13 @@ class Utilisateurs extends CI_Controller
         }
     }
 
-
-
     //Deconnexion
     public function deco(){
 
         $this->session->sess_destroy();
         $this->load->view('login');
     }
+
+
 }
 

@@ -17,13 +17,12 @@ class UtilisateursModel extends CI_Model {
 			->where("utilisateurs_id", $id)
 			->limit(1);
 
-		return $this->db->get();
+		return $this->db->get()->result_array();
 	}
     function test_mail($mail)
     {
         $this->db->from($this->table)
             ->where("utilisateurs_mail", $mail);
-
 
         return $this->db->get()->result_array();
     }

@@ -5,8 +5,6 @@
 <?php echo form_open('Utilisateurs/login'); ?>
 
 
-
-
 <label for="mail">Email</label>
 <input type="email" name="mail" /><br />
 
