@@ -30,3 +30,6 @@ function outsideClick(e){
         modal.style.display = 'none';
     }
 }
+
+//Fonction pour interrompre le formulaire si erreur qui sera appelé par le onsubmit
+

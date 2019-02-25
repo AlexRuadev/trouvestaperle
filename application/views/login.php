@@ -2,7 +2,7 @@
 
 <?php  echo validation_errors(); ?>
 
-<?php echo form_open('Utilisateurs/login'); ?>
+<?php echo form_open('Utilisateurs/testAction'); ?>
 
 
 <label for="mail">Email</label>
@@ -12,13 +12,6 @@
 
 <label for="motdepasse">Mot de passe</label>
 <input type="password" name="motdepasse" /><br />
-<?php
-
-
-if (isset($error)){
-    echo $error;
-}?>
-
 
 
 <input type="submit" name="submitted" value="Connexion" />

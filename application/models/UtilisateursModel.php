@@ -2,87 +2,62 @@
 
 class UtilisateursModel extends CI_Model {
 
-	//Choix de la table
 	function __construct()
 	{
 		parent::__construct();
 		$this->table = "ttp_utilisateurs";
 	}
 
-	//Recuparation des donnees utilisateurs pour le profil
-	function get_one($id)
+	//Fonction qui va cherche tout les utilisateurs enregistre en BDD
+	public function selectallAction()
 	{
-		$this->db->select("utilisateurs_id, utilisateurs_nom, utilisateurs_prenom, utilisateurs_num, utilisateurs_mail, utilisateurs_codepostal, utilisateurs_motdepasse, utilisateurs_created_at, utilisateurs_modif, utilisateurs_permis")
-			->from($this->table)
-			->where("utilisateurs_id", $id)
-			->limit(1);
+		$query = $this->db->get('ttp_utilisateurs');
+		return $query->result();
+	}
 
+
+	//Fonction allant cherche l'utilisateurs selon l'id de la session
+	public function selectUserAction()
+	{
+		//On définit notre id
+		$id = $this->session->userdata('utilisateurs_id');
+		$query = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $id));
+
+		return $query->result();
+
+	}
+
+	public function inscriptionAction()
+	{
+		//On détermine la date de création de l'utilisateurs
+		$this->db->set('utilisateurs_created_at ', 'NOW()', false);
+
+		//On créer la variable datz_form pour integrer les post dedans
+		$data_form = $this->input->post(NULL, TRUE);
+
+		//on détermine l'insertion des valeurs dans ce formulaire
+		if ($data_form) {
+			$nom = $data_form['nom'];
+			$prenom = $data_form['prenom'];
+			$email = $data_form['mail'];
+			$password = password_hash($data_form['password'], PASSWORD_DEFAULT);
+			$datas = array(
+				'utilisateurs_nom' => $nom,
+				'utilisateurs_prenom' => $prenom,
+				'utilisateurs_mail' => $email,
+				'utilisateurs_motdepasse' => $password,
+				'utilisateurs_token' => bin2hex(random_bytes(100)),
+			);
+			$this->db->insert('ttp_utilisateurs', $datas);
+		}
+	}
+
+	//fonction permmettant de cherche dans tout les adresses mails existantes et de comparer
+	function test_mail($mail)
+	{
+		$this->db->from($this->table)
+			->where("utilisateurs_mail", $mail);
 		return $this->db->get()->result_array();
-	}
-    function test_mail($mail)
-    {
-        $this->db->from($this->table)
-            ->where("utilisateurs_mail", $mail);
-
-        return $this->db->get()->result_array();
-    }
-    function test_password($password)
-    {
-        $this->db->from($this->table)
-            ->where("utilisateurs_motdepasse", $password)
-            ->limit(1);
-
-        return $this->db->get();
-    }
-
-	//Inscription Utilisateurs
-	function inscription($hash,$token)
-	{
-
-		$data = array(
-			"utilisateurs_mail " => $this->input->post('mail'),
-			"utilisateurs_nom " => $this->input->post('nom'),
-			"utilisateurs_prenom" => $this->input->post('prenom'),
-			"utilisateurs_motdepasse" => $hash,
-            "utilisateurs_token" => $token
-		);
-
-		$this->db->insert($this->table, $data);
-	}
-
-	//Modification du profil
-	function put($id, $nom, $prenom, $num, $mail, $codepostal, $modif, $permis)
-	{
-		$data = array(
-			"nom" => $nom,
-			"prenom" => $prenom,
-			"num" => $num,
-			"mail" => $mail,
-			"codepostal" => $codepostal,
-			"modif" => $modif,
-			"permis" => $permis,
-		);
-
-		$this->db->where("id", $id)
-			->update($this->table, $data);
-	}
-
-	//Modification mot de passe
-	function putPassword($id, $motdepasse, $token)
-	{
-		$data = array(
-			"motdepasse" => $motdepasse,
-			"token" => $token
-		);
-		$this->db->where("id", $id)
-			->update($this->table, $data);
-	}
-
-	//Suppression Utilisateur
-	function delete($id)
-	{
-		$this->db->where_in("id", $id)
-			->delete($this->table);
 	}
 
 }
