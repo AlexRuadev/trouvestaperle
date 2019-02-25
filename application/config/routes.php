@@ -54,3 +54,6 @@ $route['profiler/disable'] = "Profiler_controller/disable";
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['accueil'] = '/';
+$route['inscription'] = 'Utilisateurs/InscriptionUser';
+$route['connexion'] = 'Utilisateurs/connectionUser';
