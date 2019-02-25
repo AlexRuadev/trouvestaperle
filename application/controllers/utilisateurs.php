@@ -39,7 +39,7 @@ class Utilisateurs extends CI_Controller
         if ($this->form_validation->run() === FALSE) {
 
             $this->load->view('template/header.php');
-            $this->load->view('formulaire_cv.php');
+            $this->load->view('welcome_message.php');
             $this->load->view('template/footer.php');
 
         } else {

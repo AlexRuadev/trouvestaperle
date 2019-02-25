@@ -2,6 +2,7 @@
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('Utilisateurs/create'); ?>
+<?php echo form_open('Utilisateurs/login'); ?>
 
 <label for="nom">Nom</label>
 <input type="text" name="nom" /><br />

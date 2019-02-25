@@ -31,7 +31,10 @@ class Cv extends CI_Controller
         );
 
 
-        $this->load->view('formulaire_cv', $data);
+        $this->load->helper('url');
+        $this->load->view('template/header.php');
+        $this->load->view('formulaire_cv.php', $data);
+        $this->load->view('template/footer.php');
 
 
     }
