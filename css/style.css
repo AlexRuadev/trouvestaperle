@@ -104,7 +104,7 @@ body {
     /*}*/
 
 
-    ..navbar-toggle collapsed {
+    .navbar-toggle collapsed {
         color: white;
     }
 
