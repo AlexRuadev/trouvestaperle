@@ -12,7 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <button id="modalBtn" class="buttonmodal">Click Here</button>
         </div>
 
-
     <div id="simpleModal" class="modal">
                 <div class="login-wrap">
                     <div class="login-html">
