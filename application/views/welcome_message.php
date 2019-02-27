@@ -12,7 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <button id="modalBtn" class="buttonmodal">Commencer</button>
         </div>
 
-
     <div id="simpleModal" class="modal">
                 <div class="login-wrap">
                     <div class="login-html">
@@ -56,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="hr"></div>
                                 <div class="foot-lnk">
                                     <label for="tab-1">Already Member?</label>
+
                                 </div>
                             </div>
                         </div>
@@ -64,6 +64,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
 </section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2>Contact</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3">
+            <form id="contact-form" class="form" action="#" method="POST" role="form">
+                <div class="form-group">
+                    <label class="form-label" for="name">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom" tabindex="1" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="2" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" tabindex="3">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Message..." tabindex="4" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-start-order">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
