@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li>Un CV</li>
                 <li>TROUVETAPERLE.COM</li>
             </ul>
-            <button id="modalBtn" class="buttonmodal">Click Here</button>
+            <button id="modalBtn" class="buttonmodal">Commencer</button>
         </div>
 
 
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div class="hr"></div>
                                 <div class="foot-lnk">
-                                    <label for="tab-1">Already Member?</a>
+                                    <label for="tab-1">Already Member?</label>
                                 </div>
                             </div>
                         </div>
