@@ -517,6 +517,8 @@ a{color:inherit;text-decoration:none}
 .login-form .group .button{
     text-transform:uppercase;
 }
+
+
 .login-html .tab{
     font-size:22px;
     margin-right:15px;
@@ -563,8 +565,14 @@ a{color:inherit;text-decoration:none}
     font-size:12px;
 }
 .login-form .group .button{
-    background:#5E9BFC;
+    background: #5e9bfc;
 }
+
+.login-form .group .button:hover{
+    background: #1368F0;
+    transition:0.5s;
+}
+
 .login-form .group label .icon{
     width:15px;
     height:15px;
