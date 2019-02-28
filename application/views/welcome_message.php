@@ -64,20 +64,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?php if (isset($_POST['btnsignup'])){ echo form_error('mail'); }else{} ?>
                                 </div>
                                 <div class="group">
+                                     <label for="passwordup" class="label">Mot de Passe</label>
+                                     <input id="passwordup" type="password" class="input" name="password">
+                                     <?php if (isset($_POST['btnsignup'])){ echo form_error('password'); }else{} ?>
+                                </div>
+                                <div class="group">
                                     <input type="submit" class="button" value="Sign Up">
                                 </div>
+
                                 <div class="hr"></div>
                                 <div class="foot-lnk">
                                     <label for="tab-1">Already Member?</label>
 
-								<div class="group">
-									<label for="passwordup" class="label">Mot de Passe</label>
-									<input id="passwordup" type="password" class="input" name="password">
-									<?php if (isset($_POST['btnsignup'])){ echo form_error('password'); }else{} ?>
-								</div>
-                                <div class="group">
-                                    <input type="submit" class="button" value="Sign Up" name="btnsignup">
-                                </div>
+
+
 								</form>
                             </div>
                         </div>
