@@ -26,6 +26,22 @@ class UtilisateursModel extends CI_Model {
 		return $query->result();
 
 	}
+    public function selectModifUser($id,$nom,$prenom,$dateNaissance,$numero,$codePostal)
+    {
+
+        $data = array(
+            'utilisateurs_nom' => $nom,
+            'utilisateurs_prenom' => $prenom,
+            'utilisateurs_naissance' => $dateNaissance,
+            'utilisateurs_num' => $numero,
+            'utilisateurs_codepostal' => $codePostal
+        );
+       $this->db->where('utilisateurs_id',$id)
+                ->update('ttp_utilisateurs',$data);
+
+
+    }
+
 
 	public function inscriptionAction()
 	{

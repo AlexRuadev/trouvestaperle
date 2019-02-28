@@ -3,7 +3,7 @@ $competences = $this->db->query("SELECT competences_name FROM ttp_competences")-
 ?>
 <section class="full-width-img">
     <div class="margeform">
-        <form id="msform" method="post" action="formcv">
+        <form id="msform" method="post" action="formCv">
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">Informations personnelles</li>
@@ -20,9 +20,9 @@ $competences = $this->db->query("SELECT competences_name FROM ttp_competences")-
                 <input type="date" name="ddn" placeholder="Date de naissance" value="<?php echo $this->session->userdata('utilisateurs_naissance'); ?>">
                 </abbr>
                 <input type="text" name="phone" placeholder="Telephone" value="<?php echo $this->session->userdata('utilisateurs_num'); ?>">
-
-                <textarea name="address" placeholder="Adresse"></textarea>
-                <input type="button" name="next" class="next action-button" value="Suivant" />
+                <?php if (isset($_POST['submit'])){ echo form_error('phone'); }else{} ?>
+                <input type="text" name="postal" placeholder="Code postal">
+                <input type="button" name="next" class="next action-button" value="Suivant" >
             </fieldset>
             <fieldset>
                 <h2 class="fs-title">Experiences</h2>
