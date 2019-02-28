@@ -31,7 +31,10 @@
             <h1>Social</h1>
 
         </div>
+
         <div class="clearfix"></div>
+        <div class="copyright"> ©All rights reserved Trouvestaperle.com  2019</div>
+
     </div>
 </div>
 <!-- END OF FOOTER -->

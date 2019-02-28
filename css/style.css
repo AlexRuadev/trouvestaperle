@@ -751,6 +751,14 @@ textarea {
     -moz-transition: .1s;
 
 }
+
+.copyright {
+    text-align: center;
+    color: #000;
+    margin-bottom: 5px;
+    font-size: .9em;
+}
+
 .clearfix {
     clear: both;
 }
