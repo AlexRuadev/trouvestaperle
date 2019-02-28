@@ -633,7 +633,8 @@ a{color:inherit;text-decoration:none}
 /*CONTACT */
 
 #contact {
-    margin: 60px auto;
+    margin-top: 60px;
+    margin-bottom: 40px;
 }
 
 textarea {
@@ -753,10 +754,18 @@ textarea {
 
 }
 
+.footerlogo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+
 .copyright {
     text-align: center;
     color: #000;
     margin-bottom: 5px;
+    margin-top: 15px;
     font-size: .9em;
 }
 
