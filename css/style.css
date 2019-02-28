@@ -36,6 +36,11 @@ body {
 .navbar-brand {
     font-size: 25px;
     transition: all 0.2s ease-out;
+    background: url("../img/logo.png");
+}
+
+.navbar-brand a{
+    background: url("../img/logo.png");
 }
 
 .navbar-scroll {
@@ -523,7 +528,7 @@ a{color:inherit;text-decoration:none}
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab{
     color:#fff;
-    border-color:#1161ee;
+    border-color:#5E9BFC;
 }
 .login-form{
     height:345px;
@@ -558,7 +563,7 @@ a{color:inherit;text-decoration:none}
     font-size:12px;
 }
 .login-form .group .button{
-    background:#1161ee;
+    background:#5E9BFC;
 }
 .login-form .group label .icon{
     width:15px;
@@ -592,7 +597,7 @@ a{color:inherit;text-decoration:none}
     color:#fff;
 }
 .login-form .group .check:checked + label .icon{
-    background:#1161ee;
+    background:#5E9BFC;
 }
 .login-form .group .check:checked + label .icon:before{
     transform:scale(1) rotate(45deg);
