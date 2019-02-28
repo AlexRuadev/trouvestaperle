@@ -36,11 +36,12 @@ body {
 .navbar-brand {
     font-size: 25px;
     transition: all 0.2s ease-out;
-    background: url("../img/logo.png");
 }
 
-.navbar-brand a{
-    background: url("../img/logo.png");
+.navbar-brand img{
+    margin-top: 5px;
+    height: 55px;
+    width: 55px;
 }
 
 .navbar-scroll {
