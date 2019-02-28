@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/trouvestaperle/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'accueil.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

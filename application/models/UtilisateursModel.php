@@ -2,72 +2,62 @@
 
 class UtilisateursModel extends CI_Model {
 
-	//Choix de la table
 	function __construct()
 	{
 		parent::__construct();
 		$this->table = "ttp_utilisateurs";
 	}
 
-	//Recuparation des donnees utilisateurs pour le profil
-	function get_one($id)
+	//Fonction qui va cherche tout les utilisateurs enregistre en BDD
+	public function selectallAction()
 	{
-		$this->db->select("id, nom, prenom, num, mail, codepostal, motdepasse, created_at, modif, permis")
-			->from($this->table)
-			->where("id", $id)
-			->limit(1);
-
-		return $this->db->get();
+		$query = $this->db->get('ttp_utilisateurs');
+		return $query->result();
 	}
 
-	//Inscription Utilisateurs
-	function post()
+
+	//Fonction allant cherche l'utilisateurs selon l'id de la session
+	public function selectUserAction()
 	{
+		//On définit notre id
+		$id = $this->session->userdata('utilisateurs_id');
+		$query = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $id));
 
-		$data = array(
-			"utilisateurs_mail " => $this->input->post('mail'),
-			"utilisateurs_nom " => $this->input->post('nom'),
-			"utilisateurs_prenom" => $this->input->post('prenom'),
-			"utilisateurs_motdepasse" => $this->input->post('motdepasse'),
+		return $query->result();
 
-		);
-
-		$this->db->insert($this->table, $data);
 	}
 
-	//Modification du profil
-	function put($id, $nom, $prenom, $num, $mail, $codepostal, $modif, $permis)
+	public function inscriptionAction()
 	{
-		$data = array(
-			"nom" => $nom,
-			"prenom" => $prenom,
-			"num" => $num,
-			"mail" => $mail,
-			"codepostal" => $codepostal,
-			"modif" => $modif,
-			"permis" => $permis,
-		);
+		//On détermine la date de création de l'utilisateurs
+		$this->db->set('utilisateurs_created_at ', 'NOW()', false);
 
-		$this->db->where("id", $id)
-			->update($this->table, $data);
+		//On créer la variable datz_form pour integrer les post dedans
+		$data_form = $this->input->post(NULL, TRUE);
+
+		//on détermine l'insertion des valeurs dans ce formulaire
+		if ($data_form) {
+			$nom = $data_form['nom'];
+			$prenom = $data_form['prenom'];
+			$email = $data_form['mail'];
+			$password = password_hash($data_form['password'], PASSWORD_DEFAULT);
+			$datas = array(
+				'utilisateurs_nom' => $nom,
+				'utilisateurs_prenom' => $prenom,
+				'utilisateurs_mail' => $email,
+				'utilisateurs_motdepasse' => $password,
+				'utilisateurs_token' => bin2hex(random_bytes(100)),
+			);
+			$this->db->insert('ttp_utilisateurs', $datas);
+		}
 	}
 
-	//Modification mot de passe
-	function putPassword($id, $motdepasse, $token)
+	//fonction permmettant de cherche dans tout les adresses mails existantes et de comparer
+	function test_mail($mail)
 	{
-		$data = array(
-			"motdepasse" => $motdepasse,
-			"token" => $token
-		);
-		$this->db->where("id", $id)
-			->update($this->table, $data);
-	}
-
-	//Suppression Utilisateur
-	function delete($id)
-	{
-		$this->db->where_in("id", $id)
-			->delete($this->table);
+		$this->db->from($this->table)
+			->where("utilisateurs_mail", $mail);
+		return $this->db->get()->result_array();
 	}
 
 }
