@@ -14,6 +14,7 @@ class Utilisateurs extends CI_Controller
         $this->load->model("UtilisateursModel");
         $this->load->helper('url_helper');
         $this->load->helper('form');
+        $this->load->helper('security');
     }
 
     //Fonction de listing des différents utilisateurs
@@ -32,10 +33,10 @@ class Utilisateurs extends CI_Controller
 	{
 
 		//Nous établissons les règles avant de lancer la validation de formulaire
-		$this->form_validation->set_rules('nom', 'nom', 'required');
-		$this->form_validation->set_rules('prenom', 'prénom', 'required');
-		$this->form_validation->set_rules('mail', 'email', 'required|is_unique[ttp_utilisateurs.utilisateurs_mail]', array('is_unique' => 'Cette adresse mail existe déjà'));
-		$this->form_validation->set_rules('password', 'mot de passe', 'required');
+		$this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|min_length[3]|max_length[12]');
+		$this->form_validation->set_rules('prenom', 'prénom', 'trim|required|xss_clean|min_length[3]|max_length[12]');
+		$this->form_validation->set_rules('mail', 'email', 'trim|strip_tags|required|valid_email|is_unique[ttp_utilisateurs.utilisateurs_mail]', array('is_unique' => 'Cette adresse mail existe déjà'));
+		$this->form_validation->set_rules('password', 'mot de passe', 'trim|strip_tags|required|min_length[6]');
 
 		//Lancement de la validation du formulaire
 		if ($this->form_validation->run() == false){
@@ -67,8 +68,8 @@ class Utilisateurs extends CI_Controller
 		$user = $this->UtilisateursModel->test_mail($mail);
 
 		//On défini les règles du formulaire
-		$this->form_validation->set_rules('mail', 'email', 'required');
-		$this->form_validation->set_rules('password', 'mot de passe',  'required');
+		$this->form_validation->set_rules('mail', 'email', 'trim|strip_tags|required');
+		$this->form_validation->set_rules('password', 'mot de passe', 'trim|strip_tags|required');
 
 		//On passe à la soumission
 		if ($this->form_validation->run() == FALSE) {
@@ -96,6 +97,7 @@ class Utilisateurs extends CI_Controller
 				}
 				//Si le mot de passe est faux
 				else {
+
 					$this->load->view('template/header');
 					$this->load->view('welcome_message');
 					$this->load->view('template/footer');
