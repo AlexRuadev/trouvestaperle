@@ -26,34 +26,35 @@ class Cv extends CI_Controller
 
         if (isset($_SESSION['logged_in'])) {
 
-            $id = $this->session->userdata('utilisateurs_id');
+            /*$id = $this->session->userdata('utilisateurs_id');
             $user = $this->UtilisateursModel->selectUserAction($id);
 
 
-            if ($this->form_validation->run() == FALSE) {
-                echo '<pre>';
-                print_r($user);
-                echo '</pre>';
+            $nom =  $this->input->post('nom');
+            $prenom =  $this->input->post('prenom');
+            $dateNaissance =  $this->input->post('dateNaissance');
+            $numero =  $this->input->post('numero');
+            $codePostal =  $this->input->post('codePostal');
 
+            $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|min_length[3]|max_length[12]');
+            $this->form_validation->set_rules('prenom', 'prénom', 'trim|required|xss_clean|min_length[3]|max_length[12]');
+            $this->form_validation->set_rules('dateNaissance', 'dateNaissance', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('numero', 'numero', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('codePostal', 'codePostal', 'trim|required|xss_clean');*/
+
+            /*if ($this->form_validation->run() === FALSE) {*/
+/*
             $this->load->view('template/header');
             $this->load->view('formulaire_cv');
-            $this->load->view('template/footer');
+            $this->load->view('template/footer');*/
 
-            } else{
+      /*      } else{*/
 
-                $nom =  $this->input->post('nom');
-                $prenom =  $this->input->post('prenom');
-                $dateNaissance =  $this->input->post('dateNaissance');
-                $numero =  $this->input->post('numero');
-                $codePostal =  $this->input->post('codePostal');
 
-                $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|min_length[3]|max_length[12]');
-                $this->form_validation->set_rules('prenom', 'prénom', 'trim|required|xss_clean|min_length[3]|max_length[12]');
-                $this->form_validation->set_rules('dateNaissance', 'dateNaissance', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('numero', 'numero', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('codePostal', 'codePostal', 'trim|required|xss_clean');
 
-                $this->UtilisateursModel->selectModifUser($id,$nom,$prenom,$dateNaissance,$numero,$codePostal);
+ /*               $this->UtilisateursModel->selectModifUser($id,$nom,$prenom,$dateNaissance,$numero,$codePostal);*/
+
+
 
 
                 //insertion de l'input experience1 en bdd
@@ -65,13 +66,13 @@ class Cv extends CI_Controller
 
 
                 $this->load->view('template/header');
-                $this->load->view('success');
+                $this->load->view('formulaire_cv');
                 $this->load->view('template/footer');
 
             }
 
-        }else{
+       /* }else{
             show_404();
-            }
+            }*/
 }
 }
