@@ -1,9 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-//print_r($_SESSION);
-$error = array();
-$error['password1'] = 'Le mot de passe rentré est faux!';
-$error['mail1'] = 'Le mail rentré n\'existe pas!';
 ?>
 <section class="full-width-img">
 
@@ -15,16 +11,14 @@ $error['mail1'] = 'Le mail rentré n\'existe pas!';
             </ul>
 			<?php
 				if (!isset($_SESSION['utilisateurs_prenom'])){
-					echo '<button id="modalBtn" class="buttonmodal">Click Here</button>';
+					echo '<button id="modalBtn" class="buttonmodal">Commencer</button>';
 				}
 			?>
         </div>
 
 
     <div id="simpleModal" class="modal">
-
-
-		<div class="login-wrap">
+                <div class="login-wrap">
                     <div class="login-html">
                         <span class="closeBtn">&times;</span>
                         <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
@@ -69,6 +63,13 @@ $error['mail1'] = 'Le mail rentré n\'existe pas!';
                                     <input id="mail" type="text" class="input" name="mail">
 									<?php if (isset($_POST['btnsignup'])){ echo form_error('mail'); }else{} ?>
                                 </div>
+                                <div class="group">
+                                    <input type="submit" class="button" value="Sign Up">
+                                </div>
+                                <div class="hr"></div>
+                                <div class="foot-lnk">
+                                    <label for="tab-1">Already Member?</label>
+
 								<div class="group">
 									<label for="passwordup" class="label">Mot de Passe</label>
 									<input id="passwordup" type="password" class="input" name="password">
@@ -86,6 +87,40 @@ $error['mail1'] = 'Le mail rentré n\'existe pas!';
 	</div>
 
 </section>
+
+<div class="container" id="contact">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2>Contact</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3">
+            <form id="contact-form" class="form" action="#" method="POST" role="form">
+                <div class="form-group">
+                    <label class="form-label" for="name">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom" tabindex="1" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="2" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" tabindex="3">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Message..." tabindex="4" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-start-order">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
