@@ -392,7 +392,7 @@ body {
 /*fenetre pop up*/
 
 .buttonmodal {
-    background: mediumslateblue;
+    background: #5E9BFC;
 
     padding: 1em 2em;
     color: white;
@@ -401,7 +401,7 @@ body {
 }
 
 .buttonmodal:hover {
-    background: darkslateblue;
+    background: #1368F0;
     transition: .5s;
     border-radius: 5px;
 
@@ -533,9 +533,8 @@ a{color:inherit;text-decoration:none}
 }
 .login-form .group{
     margin-bottom:15px;
-
-    paddi
 }
+
 .login-form .group .label,
 .login-form .group .input,
 .login-form .group .button{

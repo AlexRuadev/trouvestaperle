@@ -88,8 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </section>
 
-
-<div class="container">
+<div class="container" id="contact">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
             <h2>Contact</h2>
