@@ -7,31 +7,10 @@
     <!-- FOOTER START -->
 <div class="footer">
     <div class="contain">
-        <div class="col">
-            <h1>Company</h1>
+        <div class="logofooter"><img class="footerlogo center-block" src="img/logo.png" alt="logo"></div>
 
-        </div>
-        <div class="col">
-            <h1>Products</h1>
+        <div class="copyright"> ©All rights reserved Trouvestaperle.com  2019</div>
 
-        </div>
-        <div class="col">
-            <h1>Accounts</h1>
-
-        </div>
-        <div class="col">
-            <h1>Resources</h1>
-
-        </div>
-        <div class="col">
-            <h1>Support</h1>
-
-        </div>
-        <div class="col social">
-            <h1>Social</h1>
-
-        </div>
-        <div class="clearfix"></div>
     </div>
 </div>
 <!-- END OF FOOTER -->

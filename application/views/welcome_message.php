@@ -114,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="message">Message</label>
-                    <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Message..." tabindex="4" required></textarea>
+                    <textarea rows="4" cols="50" name="message" class="form-control" id="message" placeholder="Message..." tabindex="4" required></textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-start-order">Envoyer</button>
