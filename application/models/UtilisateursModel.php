@@ -60,7 +60,26 @@ class UtilisateursModel extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
+
+    function get_all()
+    {
+        return $this->db->get($this->table);
+    }
+
+    function get_one($id)
+    {
+        $this->db->select("utilisateurs_id")
+            ->from($this->table)
+            ->where("utilisateurs_id", $id)
+            ->limit(1);
+
+        return $this->db->get();
+    }
+
 }
+
+}
+
 
 /* End of file Model_product.php */
 /* Location: ./application/models/Model_product.php */
