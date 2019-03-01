@@ -61,19 +61,19 @@ class UtilisateursModel extends CI_Model {
 	}
 
 
-    function get_all()
+    function get_one_uti($utilisateurs_id)
     {
-        return $this->db->get($this->table);
-    }
-
-    function get_one($id)
-    {
-        $this->db->select("utilisateurs_id")
+        $this->db->select('uc_niv')
             ->from($this->table)
-            ->where("utilisateurs_id", $id)
-            ->limit(1);
+            ->where("utilisateurs_id", $utilisateurs_id)
+            ->limite(1);
+
 
         return $this->db->get();
+    }
+    function get_all_uti()
+    {
+        return $this->db->get($this->table);
     }
 
 }

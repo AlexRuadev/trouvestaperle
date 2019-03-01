@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="box">
             <ul class="subheading-text">
-                <li>Deux POUFS</li>
+                <li>Un Avenir</li>
                 <li>Un CV</li>
                 <li>TROUVESTAPERLE.COM</li>
             </ul>
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="sign-in-htm">
 								<form action="connexion" method="post"> <!-- onsubmit qui doit appeler une fonction js pour interrompre la validation -->
 								<div class="group">
-                                    <label for="user" class="label">Adresse Mail</label>
+                                    <label for="user" class="label marge">Adresse email</label>
                                     <input id="user" type="text" class="input" name="mail">
 									<?php if (isset($_POST['btnsignin'])){ $error['mail'] = form_error('mail'); echo $error['mail'];}else{} ?>
                                 </div>
@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div class="hr"></div>
                                 <div class="foot-lnk">
-                                    <a href="#forgot">Forgot Password?</a>
+                                    <a href="#forgot" class="mdpoublie">Forgot Password?</a>
                                 </div>
 								</form>
                             </div>
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?php if (isset($_POST['btnsignup'])){ echo form_error('prenom'); }else{} ?>
                                 </div>
                                 <div class="group">
-                                    <label for="mail" class="label">Email Address</label>
+                                    <label for="mail" class="label">Adresse email</label>
                                     <input id="mail" type="text" class="input" name="mail">
 									<?php if (isset($_POST['btnsignup'])){ echo form_error('mail'); }else{} ?>
                                 </div>
@@ -69,12 +69,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                      <?php if (isset($_POST['btnsignup'])){ echo form_error('password'); }else{} ?>
                                 </div>
                                 <div class="group">
+                                    <label for="passwordup" class="label">Comfirmation Mot de Passe</label>
+                                    <input id="passwordup" type="password1" class="input" name="password1">
+                                    <?php if (isset($_POST['btnsignup'])){ echo form_error('password1'); }else{} ?>
+                                </div>
+                                <div class="group">
                                     <input type="submit" class="button" value="Sign Up">
                                 </div>
 
-                                <div class="hr"></div>
                                 <div class="foot-lnk">
-                                    <label for="tab-1">Already Member?</label>
 
 
 
