@@ -45,9 +45,7 @@ body {
     transition: all 0.2s ease-out;
 }
 
-.navbar-scroll {
-    opacity: 1;
-}
+
 
 #top-social-menu {
     display: none;
@@ -59,7 +57,7 @@ body {
         opacity: 0.8;
         margin-bottom: 0;
         background-color: #fff;
-        transition: all 0.2s ease-out;
+        transition: all 0.5s ease-out;
     }
 
     .navbar-nav>li>a {
@@ -162,6 +160,17 @@ body {
     /*transform: scale(1.1);*/
 
 }
+.navbar-scroll {
+    opacity: 1;
+    transition: 0.5s;
+}
+@media (max-width: 768px) {
+    .navbar-brand img{
+        margin-top: -10px;
+        height: 40px;
+        width: 40px;
+    }
+}
 
 /* # Social menu
 ================================ */
@@ -231,9 +240,14 @@ body {
 
 .subheading-text {
     list-style: none;
-    font-size: 35px;
-    line-height: 50px;
+    font-size: 2em;
 
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -654,7 +668,7 @@ a{color:inherit;text-decoration:none}
 /*CONTACT */
 
 #contact {
-    margin-top: 60px;
+    padding-top: 60px;
     margin-bottom: 40px;
 }
 

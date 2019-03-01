@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="box">
             <ul class="subheading-text">
-                <li>Un avenir</li>
+                <li>Un Avenir</li>
                 <li>Un CV</li>
                 <li>TROUVESTAPERLE.COM</li>
             </ul>
