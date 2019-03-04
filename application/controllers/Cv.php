@@ -32,10 +32,12 @@ class Cv extends CI_Controller
             $user = $this->UtilisateursModel->selectUserAction($id);
 
 
+
             $competences = $this->CompetencesModel->all_competences();
             $domaines = $this->DomaineModel->all_domaines();
 
 
+            $this->CvModel->create_cv($id);
 
             $this->form_validation->set_rules('titre', 'titre', 'trim|strip_tags|required');
             $this->form_validation->set_rules('description', 'description', 'trim|strip_tags|required');
@@ -44,37 +46,38 @@ class Cv extends CI_Controller
             $this->form_validation->set_rules('finFormation', 'finFormation', 'required');
             $this->form_validation->set_rules('domaines', 'domaines', 'trim|strip_tags|required');
 
+            $this->form_validation->set_rules('titre2', 'titre2', 'trim|strip_tags|required');
+            $this->form_validation->set_rules('description2', 'description2', 'trim|strip_tags|required');
+            $this->form_validation->set_rules('anciennete', 'anciennete', 'required');
+            $this->form_validation->set_rules('debutExperience', 'debutExperience', 'required');
+            $this->form_validation->set_rules('finExperience', 'finExperience', 'required');
+            $this->form_validation->set_rules('domaines2', 'domaines2', 'trim|strip_tags|required');
+
             echo '<pre>';
             print_r($user);
             echo '</pre>';
 
-            $this->load->view('template/header');
-            $this->load->view('formulaire_cv', array("competences" => $competences,
-                "domaines" => $domaines)) ;
-            $this->load->view('template/footer');
+
 
 
 
             if ($this->form_validation->run() === FALSE) {
 
             $this->load->view('template/header');
-            $this->load->view('formulaire_cv');
+            $this->load->view('formulaire_cv', array("competences" => $competences,
+                    "domaines" => $domaines)) ;
             $this->load->view('template/footer');
 
           } else{
 
 
+                $this->FormationModel->create_formation($id);
 
-                //insertion de l'input experience1 en bdd
-              $inputexperience1 = $this->input->post('experience1');
-                $this->db->set('ttp_experiences', $inputexperience1);
-                //insertion de l'input experience2 en bdd
-                $inputexperience2 = $this->input->post('experience2');
-                $this->db->set('ttp_experiences', $inputexperience2);
 
 
                 $this->load->view('template/header');
-                $this->load->view('formulaire_cv');
+                $this->load->view('formulaire_cv', array("competences" => $competences,
+                    "domaines" => $domaines)) ;
                 $this->load->view('template/footer');
 
             }

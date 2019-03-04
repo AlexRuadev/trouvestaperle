@@ -1,5 +1,5 @@
 <?php
-$competences = $this->db->query("SELECT competences_name FROM ttp_competences")->result_array();
+
 ?>
 <section class="full-width-img">
     <div class="margeform">
@@ -16,39 +16,43 @@ $competences = $this->db->query("SELECT competences_name FROM ttp_competences")-
                 <h3 class="fs-subtitle">Etape 1</h3>
                 <input type="text" name="titre" placeholder="Titre">
                 <textarea name="description" placeholder="Description"></textarea>
-                <select>
+                <select name="niveau" style="color: black; width: 265px">
                     <!--changer BDD int formation_niv-->
-                    <option>CAP/BEP</option>
-                    <option>BAC</option>
-                    <option>+2</option>
-                    <option>+3</option>
-                    <option>+4</option>
-                    <option>+5</option>
+                    <option value="CAP/BEP">CAP/BEP</option>
+                    <option value="BAC">BAC</option>
+                    <option value="+2">+2</option>
+                    <option value="+3">+3</option>
+                    <option value="+4">+4</option>
+                    <option value="+5">+5</option>
                 </select>
                 <input type="date" name="debutFormation" placeholder="debut">
                 <input type="date" name="finFormation" placeholder="fin">
-                <select>
+                <select name="domaines" style="color: black; width: 265px">
                     <!--foreach domaines-->
-                    <option></option>
-                    <option></option>
-                    <option></option>
+                    <?php
+                    foreach ($domaines as $domaine){
+                        echo '<option value="' .$domaine['domaines_nom']. '">' .$domaine['domaines_nom']. '</option>';
+                    }
+                    ?>
                 </select>
                 <input type="button" name="next" class="next action-button" value="Suivant" >
             </fieldset>
             <fieldset>
                 <h2 class="fs-title">Experiences</h2>
                 <h3 class="fs-subtitle">Vos experiences significatives</h3>
-                <input type="text" name="titre" placeholder="titre" />
-                <textarea name="description" placeholder="Description"></textarea>
+                <input type="text" name="titre2" placeholder="titre" />
+                <textarea name="description2" placeholder="Description"></textarea>
                 <input type="text" name="anciennete" placeholder="anciennete" />
                 </select>
                 <input type="date" name="debutExperience" placeholder="debut">
                 <input type="date" name="finExperience" placeholder="fin">
-                <select>
+                <select name="domaines2" style="color: black; width: 265px">
                     <!--foreach domaines-->
-                    <option></option>
-                    <option></option>
-                    <option></option>
+                    <?php
+                    foreach ($domaines as $domaine){
+                        echo '<option value="' .$domaine['domaines_nom']. '">' .$domaine['domaines_nom']. '</option>';
+                    }
+                    ?>
                 </select>
 
                 <input type="button" name="previous" class="previous action-button" value="Precedent" />
@@ -56,27 +60,6 @@ $competences = $this->db->query("SELECT competences_name FROM ttp_competences")-
             </fieldset>
             <fieldset>
                 <h2 class="fs-title">Competences</h2>
-                <select name="competences" id="competences" style="color: black; width: 265px">
-                    <?php
-                    foreach ($competences as $competence){
-                        echo '<option value="' .$competence['competences_name']. '">' .$competence['competences_name']. '</option>';
-                    }
-                    ?>
-                </select>
-                <select name="competences" id="competences" style="color: black; width: 265px">
-                    <?php
-                    foreach ($competences as $competence){
-                        echo '<option value="' .$competence['competences_name']. '">' .$competence['competences_name']. '</option>';
-                    }
-                    ?>
-                </select>
-                <select name="competences" id="competences" style="color: black; width: 265px">
-                    <?php
-                    foreach ($competences as $competence){
-                        echo '<option value="' .$competence['competences_name']. '">' .$competence['competences_name']. '</option>';
-                    }
-                    ?>
-                </select>
                 <select name="competences" id="competences" style="color: black; width: 265px">
                     <?php
                     foreach ($competences as $competence){

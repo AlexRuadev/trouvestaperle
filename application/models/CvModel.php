@@ -20,12 +20,14 @@ class CvModel extends CI_Model {
 	}
 
 	//Insertion du cv en BDD
-	function post()
+	function create_cv($id)
 	{
-		$data = array();
 
-		$this->db->insert($this->table, $data)
-			->where("ttp_utilisateurs_utilisateurs_id");
+        $this->db->set('cv_created_at ', 'NOW()', false);
+		$data = array(
+		    "ttp_utilisateurs_utilisateurs_id" => $id);
+
+		$this->db->insert($this->table, $data);
 	}
 
 	//Modif données CV

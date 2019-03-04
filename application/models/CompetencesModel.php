@@ -14,6 +14,11 @@ class CompetencesModel extends CI_Model {
     {
         return $this->db->get($this->table);
     }
+    public function all_competences()
+    {
+        $query = $this->db->get('ttp_competences');
+        return $query->result_array();
+    }
 
     //Recupere une competence
     function get_one($competences_id)

@@ -14,6 +14,11 @@ class DomaineModel extends CI_Model {
     {
         return $this->db->get($this->table);
     }
+    public function all_domaines()
+    {
+        $query = $this->db->get('ttp_domaines');
+        return $query->result_array();
+    }
 
     //Recupere un domaine
     function get_one($domaines_id)
