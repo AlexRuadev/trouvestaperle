@@ -10,21 +10,17 @@ class CvModel extends CI_Model {
 	}
 
 	//Récupère tous les cv
-	function get_all_cv($id)
+	function get_all()
 	{
-		$this->db->select("cv_id")
-			->from($this->table)
-			->where("ttp_utilisateurs_utilisateurs_id", $id);
-
-		return $this->db->get();
+		return $this->db->from($this->table)->get();
 	}
 
     //Recupere les cv d'un utilisateur
     function get_one_cv($cv_id)
     {
-        $this->db->select("cv_id, ttp_utilisateurs_utilisateur_id")
+        $this->db->select("*")
             ->from($this->table)
-            ->where("ttp_utilisateurs_utilisateur_id", $cv_id)
+            ->where("cv_id", $cv_id)
             -> limit(1);
 
         return $this->db->get();

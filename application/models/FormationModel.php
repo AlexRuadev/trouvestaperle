@@ -7,6 +7,7 @@ class FormationModel extends CI_Model {
     {
         parent::__construct();
         $this->table = "ttp_formations";
+        $this->jointable = "ttp_domaines";
     }
 
     //Recupere toutes les formations
@@ -18,10 +19,10 @@ class FormationModel extends CI_Model {
     //Recupere les formations d'un cv
     function get_one_for($ttp_cv_cv_id)
     {
-        $this->db->select("formations_id, formations_titre, formations_description, formations_niv, formations_debut, formations_fin, ttp_domaines_domaines_id")
+        $this->db->select("*")
             ->from($this->table)
-            ->where("ttp_cv_cv_id", $ttp_cv_cv_id)
-            ->limit(1);
+            ->join($this->jointable, "ttp_domaines.domaines_id = ttp_formations.ttp_domaines_domaines_id")
+            ->where("ttp_cv_cv_id", $ttp_cv_cv_id);
 
         return $this->db->get();
     }
