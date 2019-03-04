@@ -32,7 +32,7 @@ class UtilisateursModel extends CI_Model {
 		//On détermine la date de modification de l'utilisateurs
 		$this->db->set('utilisateurs_modif ', 'NOW()', false);
 
-		//On créer la variable datz_form pour integrer les post dedans
+		//On créer la variable data_form pour integrer les post dedans
 		$data_form = $this->input->post(NULL, TRUE);
 
 		//on détermine l'insertion des valeurs dans ce formulaire
