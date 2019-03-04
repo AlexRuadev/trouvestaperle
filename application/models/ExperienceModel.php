@@ -9,13 +9,13 @@ class ExperienceModel extends CI_Model {
         $this->table = "ttp_experiences";
     }
     //Recupere toutes les expériences
-    function get_all()
+    function get_all_ex()
     {
         return $this->db->get($this->table);
     }
 
     //Recupere une experience d'un cv
-    function get_one($ttp_cv_cv_id)
+    function get_one_ex($ttp_cv_cv_id)
     {
         $this->db->select("experiences_id, experiences_titre, experiences_description, experiences_niv, experiences_debut, experiences_fin, ttp_domaines_domaines_id")
             ->from($this->table)

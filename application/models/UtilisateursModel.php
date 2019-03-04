@@ -94,7 +94,26 @@ class UtilisateursModel extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
+
+    function get_one_uti($utilisateurs_id)
+    {
+        $this->db->select('uc_niv')
+            ->from($this->table)
+            ->where("utilisateurs_id", $utilisateurs_id)
+            ->limite(1);
+
+
+        return $this->db->get();
+    }
+    function get_all_uti()
+    {
+        return $this->db->get($this->table);
+    }
+
 }
+
+}
+
 
 /* End of file Model_product.php */
 /* Location: ./application/models/Model_product.php */

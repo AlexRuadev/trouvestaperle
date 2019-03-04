@@ -10,13 +10,13 @@ class DomaineModel extends CI_Model {
     }
 
     //Recupere toute les domaines
-    function get_all()
+    function get_all_do()
     {
         return $this->db->get($this->table);
     }
 
     //Recupere un domaine
-    function get_one($domaines_id)
+    function get_one_do($domaines_id)
     {
         $this->db->select("domaines_id, domaines_name")
             ->from($this->table)

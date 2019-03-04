@@ -19,6 +19,16 @@ class CvModel extends CI_Model {
 		return $this->db->get();
 	}
 
+    //Recupere les cv d'un utilisateur
+    function get_one_cv($cv_id)
+    {
+        $this->db->select("cv_id, ttp_utilisateurs_utilisateur_id")
+            ->from($this->table)
+            ->where("cv_id", $cv_id);
+
+        return $this->db->get();
+    }
+
 	//Insertion du cv en BDD
 	function post()
 	{
