@@ -1,21 +1,35 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product extends CI_Controller {
+class bdd extends CI_Controller {
 
     function __construct()
     {
         parent::__construct();
         $this->load->database();
-        $this->load->model("Model_product");
+        $this->load->model("CompetencesModel");
+        $this->load->model("CvModel");
+        $this->load->model("DomaineModel");
+        $this->load->model("ExperienceModel");
+        $this->load->model("FormationModel");
+        $this->load->model("UcModel");
+        $this->load->model("UtilisateursModel");
+
     }
 
     public function index()
     {
-        $data = $this->Model_product->get_all();
+        $data = $this->CompetencesModel->get_all();
+        //$data = $this->CvModel->get_all_cv();
+        //$data = $this->DomaineModel->get_all_do();
+        //$data = $this->ExperienceModel->get_all_ex();
+        //$data = $this->FormatonModel->get_all_for();
+        //$data = $this->UcModel->get_all_uc();
+        //$data = $this->UtilisateursModel->get_all_uti();
+
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->id), "title" => $row->title);
+                $result[] = $this->view(intval($row->id));
             }
             echo json_encode($result);
         } else {
@@ -39,49 +53,7 @@ class Product extends CI_Controller {
         }
     }
 
-    public function create()
-    {
-        $title = $this->input->post('title', TRUE);
 
-        if (!empty($title)) {
-            $this->Model_product->post($title);
-            echo json_encode('Product created');
-        } else {
-            header("HTTP/1.0 400 Bad Request");
-            echo json_encode("400: Empty value");
-        }
-    }
-
-    public function update($id)
-    {
-        $title = utf8_encode($this->input->input_stream('title', TRUE));
-
-        if ($this->Model_product->get_one($id)->num_rows() == 1) {
-
-            if (!empty($title)) {
-                $this->Model_product->put($id, $title);
-                echo json_encode("200: Product #$id updated");
-            } else {
-                header("HTTP/1.0 400 Bad Request");
-                echo json_encode("400: Empty value");
-            }
-
-        } else {
-            header("HTTP/1.0 404 Not Found");
-            echo json_encode("404: Product #$id not found");
-        }
-    }
-
-    public function delete($id)
-    {
-        if ($this->Model_product->get_one($id)->num_rows() == 1) {
-            $this->Model_product->delete($id);
-            echo json_encode("200: Product #$id deleted");
-        } else {
-            header("HTTP/1.0 404 Not Found");
-            echo json_encode("404: Product $id not found");
-        }
-    }
 }
 
 /* End of file Product.php */
