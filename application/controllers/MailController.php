@@ -17,28 +17,52 @@ class MailController extends CI_Controller
 
 	public function contact()
 	{
-		$config = array(
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_port' => 465,
-			'smtp_user' => 'trouvestaperle@gmail.com',
-			'smtp_pass' => 'Trouvestaperle2',
-			'mailtype' => 'html',
-			'charset' => 'iso-8859-1'
-		);
+		//On récupère les inputs du formulaire
+		$data_form = $this->input->post(NULL, TRUE);
 
-		$this->load->library('email', $config);
-		$this->email->set_newline("\r\n");
+		//On définit des variables pour les inputs
+		$nom = $data_form['name'];
+		$email = $data_form['email'];
+		$objet = $data_form['subject'];
+		$message = $data_form['message'];
 
-		$this->email->from('trouvestaperle@gmail.com', 'Alexandre');
-		$this->email->reply_to('theluffy@hotmail.fr', 'Alexandre');
-		$this->email->bcc('theluffy@hotmail.fr');
-		$this->email->to('trouvestaperle@gmail.com');
+		$this->form_validation->set_rules('name', 'Nom', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('subject', 'Objet', 'required');
+		$this->form_validation->set_rules('message', 'Message', 'required');
 
-		$this->email->subject('Test');
-		$this->email->message('Test');
 
-		$this->email->send();
+//		if ($this->form_validation->run() === false){
+//			$this->load->view('template/header.php');
+//			$this->load->view(base_url());
+//			$this->load->view('template/footer.php');
+//		}else {
+			//Configuration des paramètres pour la librairies email
+			$config = array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
+				'smtp_port' => 465,
+				'smtp_user' => 'trouvestaperle@gmail.com',
+				'smtp_pass' => 'Trouvestaperle2',
+				'mailtype' => 'html',
+				'charset' => 'iso-8859-1'
+			);
+
+			//On charge la librairie email avec les configs au dessus
+			$this->load->library('email', $config);
+			$this->email->set_newline("\r\n");
+
+			//On définit les destinataires et les émetteurs
+			$this->email->from('trouvestaperle@gmail.com', $nom);
+			$this->email->reply_to($email, $nom);
+			$this->email->bcc($email);
+			$this->email->to('trouvestaperle@gmail.com');
+
+			$this->email->subject($objet);
+			$this->email->message($message);
+
+			$this->email->send();
+//		}
 
 	}
 
