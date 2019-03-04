@@ -94,22 +94,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3">
-            <form id="contact-form" class="form" action="email" method="POST" role="form">
+            <form id="contact-form" class="form" action="MailController/contact" method="POST" role="form">
                 <div class="form-group">
-                    <label class="form-label" for="name">Your Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom" tabindex="1" required>
+                    <label class="form-label" for="name">Votre Nom: </label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Votre Nom" tabindex="1">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="email">Your Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="2" required>
+                    <label class="form-label" for="email">Votre Email: </label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Votre Email" tabindex="2">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="subject">Subject</label>
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" tabindex="3">
+                    <label class="form-label" for="subject">Objet: </label>
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Objet" tabindex="3">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="message">Message</label>
-                    <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Message..." tabindex="4" required></textarea>
+                    <label class="form-label" for="message">Votre Message: </label>
+                    <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Votre Message..." tabindex="4"></textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-start-order">Envoyer</button>
