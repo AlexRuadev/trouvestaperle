@@ -31,7 +31,7 @@
                     <!--foreach domaines-->
                     <?php
                     foreach ($domaines as $domaine){
-                        echo '<option value="' .$domaine['domaines_nom']. '">' .$domaine['domaines_nom']. '</option>';
+                        echo '<option value="' .$domaine['domaines_id']. '">' .$domaine['domaines_nom']. '</option>';
                     }
                     ?>
                 </select>
@@ -50,7 +50,7 @@
                     <!--foreach domaines-->
                     <?php
                     foreach ($domaines as $domaine){
-                        echo '<option value="' .$domaine['domaines_nom']. '">' .$domaine['domaines_nom']. '</option>';
+                        echo '<option value="' .$domaine['domaines_id']. '">' .$domaine['domaines_nom']. '</option>';
                     }
                     ?>
                 </select>
@@ -63,9 +63,23 @@
                 <select name="competences" id="competences" style="color: black; width: 265px">
                     <?php
                     foreach ($competences as $competence){
-                        echo '<option value="' .$competence['competences_name']. '">' .$competence['competences_name']. '</option>';
+                        echo '<option value="' .$competence['competences_id']. '">' .$competence['competences_name']. '</option>';
                     }
                     ?>
+                </select>
+                <select name="niveau2" style="color: black; width: 265px">
+                    <!--changer BDD int formation_niv-->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+
                 </select>
                 <input type="button" name="previous" class="previous action-button" value="Precedent" />
                 <input type="submit" name="submit" class="action-button" value="Confirmer" >

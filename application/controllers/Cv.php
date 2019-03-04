@@ -36,8 +36,9 @@ class Cv extends CI_Controller
             $competences = $this->CompetencesModel->all_competences();
             $domaines = $this->DomaineModel->all_domaines();
 
-
+            ;
             $this->CvModel->create_cv($id);
+
 
             $this->form_validation->set_rules('titre', 'titre', 'trim|strip_tags|required');
             $this->form_validation->set_rules('description', 'description', 'trim|strip_tags|required');
@@ -70,8 +71,13 @@ class Cv extends CI_Controller
 
           } else{
 
+                $cv_id = $this->CvModel->get_all_cv($id);
 
-                $this->FormationModel->create_formation($id);
+                $this->FormationModel->create_formation($cv_id[0]['cv_id']);
+
+                $this->ExperienceModel->create_experience($cv_id[0]['cv_id']);
+
+                $this->UcModel->creation_lien_competences($cv_id[0]['cv_id']);
 
 
 

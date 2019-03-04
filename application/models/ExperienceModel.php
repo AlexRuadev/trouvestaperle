@@ -26,7 +26,7 @@ class ExperienceModel extends CI_Model {
     }
 
     //Insertion experiences en bdd
-    function post($experiences_titre, $experiences_description, $experiences_niv, $experiences_debut, $experiences_fin,$ttp_domaines_domaines_id,$ttp_cv_cv_id)
+    function post()
     {
         $data = array(
             "experiences_titre" => $experiences_titre,
@@ -39,6 +39,27 @@ class ExperienceModel extends CI_Model {
 
         $this->db->insert($this->table, $data)
             ->where("ttp_cv_cv_id", $ttp_cv_cv_id);
+    }
+
+    function create_experience($cv_id)
+    {
+
+
+        $data_form2 = $this->input->post(NULL, TRUE);
+
+
+        $data = array(
+            "experiences_titre" => $data_form2['titre2'],
+            "experiences_description" => $data_form2['anciennete'],
+            "experiences_niv" => $data_form2['anciennete'],
+            "experiences_debut" => $data_form2['debutExperience'],
+            "experiences_fin" => $data_form2['finExperience'],
+            "ttp_domaines_domaines_id" => $data_form2['domaines2'],
+            "ttp_cv_cv_id" => $cv_id
+        );
+
+
+        $this->db->insert($this->table, $data);
     }
 
     //Modifie une experience dans un cv

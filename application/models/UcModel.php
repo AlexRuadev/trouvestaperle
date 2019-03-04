@@ -22,18 +22,20 @@ class UcModel extends CI_Model {
     }
 
     //Insertion du niveau
-    function post($uc_niv,$ttp_cv_cv_id,$ttp_competences_competence_id)
+    function creation_lien_competences($cv_id)
     {
+
+        $data_form3 = $this->input->post(NULL, TRUE);
+
         $data = array(
-            "uc_niv" => $uc_niv,
-            "ttp_cv_cv_id" => $ttp_cv_cv_id,
-            "ttp_competences_competence_id" => $ttp_competences_competence_id
+            "uc_niv" => $data_form3['niveau2'],
+            "ttp_cv_cv_id" => $cv_id,
+            "ttp_competences_competences_id" => $data_form3['competences']
         );
 
-        $this->db->insert($this->table, $data)
-                ->where("ttp_cv_cv_id", $ttp_cv_cv_id)
-                ->where("ttp_competences_competence_id", $ttp_competences_competence_id);
-    }
+        $this->db->insert($this->table, $data);
+
+}
 
     //Modification du niveau
     function put($ttp_cv_cv_id,$ttp_competences_competence_id, $uc_niv)

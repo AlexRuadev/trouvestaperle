@@ -14,10 +14,12 @@ class CvModel extends CI_Model {
 	{
 		$this->db->select("cv_id")
 			->from($this->table)
-			->where("ttp_utilisateurs_utilisateurs_id", $id);
+			->where("ttp_utilisateurs_utilisateurs_id", $id)
+		    ->order_by('cv_created_at ', 'DESC');
 
-		return $this->db->get();
+		return $this->db->get()->result_array();
 	}
+
 
 	//Insertion du cv en BDD
 	function create_cv($id)

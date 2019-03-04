@@ -27,27 +27,20 @@ class FormationModel extends CI_Model {
     }
 
     //Insertion formations en bdd
-    function create_formation($id)
+    function create_formation($cv_id)
     {
-
 
         $data_form = $this->input->post(NULL, TRUE);
 
-        $formations_titre = $data_form['titre'];
-        $formations_description = $data_form['description'];
-        $formations_niv = $data_form['niveau'];
-        $formations_debut = $data_form['debutFormation'];
-        $formations_fin = $data_form['finFormation'];
-        $ttp_domaines_domaines_id = $data_form['domaines'];
-
         $data = array(
-            "formations_titre" => $formations_titre,
-            "formations_description" => $formations_description,
-            "formations_niv" => $formations_niv,
-            "formations_debut" => $formations_debut,
-            "formations_fin" => $formations_fin,
-            "ttp_domaines_domaines_id" => $ttp_domaines_domaines_id,
-            "ttp_cv_cv_id" => $id
+
+            "formations_titre" => $data_form['titre'],
+            "formations_description" => $data_form['description'],
+            "formations_niv" => $data_form['niveau'],
+            "formations_debut" => $data_form['debutFormation'],
+            "formations_fin" => $data_form['finFormation'],
+            "ttp_domaines_domaines_id" => $data_form['domaines'],
+            "ttp_cv_cv_id" => $cv_id
         );
 
         $this->db->insert($this->table, $data);
