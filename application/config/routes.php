@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['accueil'] = '/';
 $route['inscription'] = 'Utilisateurs/InscriptionUser';
 $route['connexion'] = 'Utilisateurs/connectionUser';
+$route["api/v1/bdd"]["get"] = "api/v1/bdd";
 $route['email'] = 'Contact/email';
 $route['formCv'] = 'Cv/formCv';
 
