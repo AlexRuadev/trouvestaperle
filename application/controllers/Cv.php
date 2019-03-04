@@ -26,43 +26,51 @@ class Cv extends CI_Controller
 
         if (isset($_SESSION['logged_in'])) {
 
-            /*$id = $this->session->userdata('utilisateurs_id');
+
+
+            $id = $this->session->userdata('utilisateurs_id');
             $user = $this->UtilisateursModel->selectUserAction($id);
 
 
-            $nom =  $this->input->post('nom');
-            $prenom =  $this->input->post('prenom');
-            $dateNaissance =  $this->input->post('dateNaissance');
-            $numero =  $this->input->post('numero');
-            $codePostal =  $this->input->post('codePostal');
+            $competences = $this->CompetencesModel->all_competences();
+            $domaines = $this->DomaineModel->all_domaines();
 
-            $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|min_length[3]|max_length[12]');
-            $this->form_validation->set_rules('prenom', 'prénom', 'trim|required|xss_clean|min_length[3]|max_length[12]');
-            $this->form_validation->set_rules('dateNaissance', 'dateNaissance', 'trim|required|xss_clean');
-            $this->form_validation->set_rules('numero', 'numero', 'trim|required|xss_clean');
-            $this->form_validation->set_rules('codePostal', 'codePostal', 'trim|required|xss_clean');*/
 
-            /*if ($this->form_validation->run() === FALSE) {*/
-/*
+
+            $this->form_validation->set_rules('titre', 'titre', 'trim|strip_tags|required');
+            $this->form_validation->set_rules('description', 'description', 'trim|strip_tags|required');
+            $this->form_validation->set_rules('niveau', 'niveau', 'required');
+            $this->form_validation->set_rules('debutFormation', 'debutFormation', 'required');
+            $this->form_validation->set_rules('finFormation', 'finFormation', 'required');
+            $this->form_validation->set_rules('domaines', 'domaines', 'trim|strip_tags|required');
+
+            echo '<pre>';
+            print_r($user);
+            echo '</pre>';
+
+            $this->load->view('template/header');
+            $this->load->view('formulaire_cv', array("competences" => $competences,
+                "domaines" => $domaines)) ;
+            $this->load->view('template/footer');
+
+
+
+            if ($this->form_validation->run() === FALSE) {
+
             $this->load->view('template/header');
             $this->load->view('formulaire_cv');
-            $this->load->view('template/footer');*/
+            $this->load->view('template/footer');
 
-      /*      } else{*/
-
-
-
- /*               $this->UtilisateursModel->selectModifUser($id,$nom,$prenom,$dateNaissance,$numero,$codePostal);*/
-
+          } else{
 
 
 
                 //insertion de l'input experience1 en bdd
-       /*         $inputexperience1 = $this->input->post('experience1');
+              $inputexperience1 = $this->input->post('experience1');
                 $this->db->set('ttp_experiences', $inputexperience1);
                 //insertion de l'input experience2 en bdd
                 $inputexperience2 = $this->input->post('experience2');
-                $this->db->set('ttp_experiences', $inputexperience2);*/
+                $this->db->set('ttp_experiences', $inputexperience2);
 
 
                 $this->load->view('template/header');
@@ -71,8 +79,8 @@ class Cv extends CI_Controller
 
             }
 
-       /* }else{
+        }else{
             show_404();
-            }*/
+            }
 }
 }
