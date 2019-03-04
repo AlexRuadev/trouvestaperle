@@ -60,6 +60,7 @@ class UtilisateursModel extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
+
     function get_one_uti($utilisateurs_id)
     {
         $this->db->select('uc_niv')
@@ -76,6 +77,9 @@ class UtilisateursModel extends CI_Model {
     }
 
 }
+
+}
+
 
 /* End of file Model_product.php */
 /* Location: ./application/models/Model_product.php */
