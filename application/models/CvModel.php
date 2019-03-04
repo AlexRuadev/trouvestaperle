@@ -24,7 +24,8 @@ class CvModel extends CI_Model {
     {
         $this->db->select("cv_id, ttp_utilisateurs_utilisateur_id")
             ->from($this->table)
-            ->where("cv_id", $cv_id);
+            ->where("ttp_utilisateurs_utilisateur_id", $cv_id)
+            -> limit(1);
 
         return $this->db->get();
     }

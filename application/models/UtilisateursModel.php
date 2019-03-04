@@ -65,8 +65,7 @@ class UtilisateursModel extends CI_Model {
     {
         $this->db->select('uc_niv')
             ->from($this->table)
-            ->where("utilisateurs_id", $utilisateurs_id)
-            ->limite(1);
+            ->where("utilisateurs_id", $utilisateurs_id);
 
 
         return $this->db->get();
@@ -76,7 +75,7 @@ class UtilisateursModel extends CI_Model {
         return $this->db->get($this->table);
     }
 
-}
+
 
 }
 

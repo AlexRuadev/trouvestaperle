@@ -20,8 +20,7 @@ class CompetencesModel extends CI_Model {
     {
         $this->db->select("competences_id, competences_name")
             ->from($this->table)
-            ->where("competences_id", $competences_id)
-            ->limit(1);
+            ->where("competences_id", $competences_id);
 
         return $this->db->get();
     }
