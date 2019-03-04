@@ -29,15 +29,12 @@ class Cv extends CI_Controller
 
 
             $id = $this->session->userdata('utilisateurs_id');
-            $user = $this->UtilisateursModel->selectUserAction($id);
-
 
 
             $competences = $this->CompetencesModel->all_competences();
             $domaines = $this->DomaineModel->all_domaines();
 
-            ;
-            $this->CvModel->create_cv($id);
+
 
 
             $this->form_validation->set_rules('titre', 'titre', 'trim|strip_tags|required');
@@ -54,9 +51,7 @@ class Cv extends CI_Controller
             $this->form_validation->set_rules('finExperience', 'finExperience', 'required');
             $this->form_validation->set_rules('domaines2', 'domaines2', 'trim|strip_tags|required');
 
-            echo '<pre>';
-            print_r($user);
-            echo '</pre>';
+
 
 
 
@@ -70,14 +65,14 @@ class Cv extends CI_Controller
             $this->load->view('template/footer');
 
           } else{
+                $this->CvModel->create_cv($id);
+                $cv_id = $this->db->insert_id();
 
-                $cv_id = $this->CvModel->get_all_cv($id);
+                $this->FormationModel->create_formation($cv_id);
 
-                $this->FormationModel->create_formation($cv_id[0]['cv_id']);
+                $this->ExperienceModel->create_experience($cv_id);
 
-                $this->ExperienceModel->create_experience($cv_id[0]['cv_id']);
-
-                $this->UcModel->creation_lien_competences($cv_id[0]['cv_id']);
+                $this->UcModel->creation_lien_competences($cv_id);
 
 
 

@@ -1,5 +1,5 @@
 <?php
-
+echo validation_errors('<span class="error">', '</span>');
 ?>
 <section class="full-width-img">
     <div class="margeform">
@@ -35,6 +35,7 @@
                     }
                     ?>
                 </select>
+
                 <input type="button" name="next" class="next action-button" value="Suivant" >
             </fieldset>
             <fieldset>
