@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $données = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $_SESSION['utilisateurs_id']))->result_array();
 foreach ($données as $donnée) { ?>
 
-	<section class="contain">
+	<div class="contain">
 		<div>
 			<h4>Nom: </h4>
 			<p><?php echo $donnée['utilisateurs_nom'] ?></p>
@@ -32,8 +32,8 @@ foreach ($données as $donnée) { ?>
 			<h4>Code Postal: </h4>
 			<p><?php echo$donnée['utilisateurs_codepostal'] ?></p>
 		</div>
-	</section>
-	<button type="submit"><a href="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>">Modifier</a></button>
+	</div>
+	<a href="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"><button>Modifier</button></a>
 	<?php
 }
 ?>
