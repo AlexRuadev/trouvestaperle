@@ -68,6 +68,8 @@ class Cv extends CI_Controller
                 $this->CvModel->create_cv($id);
                 $cv_id = $this->db->insert_id();
 
+                $this->confirmcv->confirmationcv();
+
                 $this->FormationModel->create_formation($cv_id);
 
                 $this->ExperienceModel->create_experience($cv_id);
@@ -77,14 +79,14 @@ class Cv extends CI_Controller
 
 
                 $this->load->view('template/header');
-                $this->load->view('formulaire_cv', array("competences" => $competences,
+                $this->load->view('viewProfil', array("competences" => $competences,
                     "domaines" => $domaines)) ;
                 $this->load->view('template/footer');
 
             }
 
         }else{
-            show_404();
+            redirect(base_url());
             }
 }
 }

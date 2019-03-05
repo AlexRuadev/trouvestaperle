@@ -43,19 +43,18 @@ foreach ($données as $donnée) { ?>
 
 
         <div class="form-group row">
-        <label for="staticPermis" class="col-sm-2 col-form-label">Permis:</label>
-            <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticPermis" value="<?php echo $donnée['utilisateurs_permis'] ?>">
-            </div>
-        </div>
-
-
-        <div class="form-group row">
         <label for="staticCodePostal" class="col-sm-2 col-form-label">Code Postal:</label>
             <div class="col-sm-10">
             <input type="text" readonly class="form-control-plaintext" id="staticCodePostal" value="<?php echo$donnée['utilisateurs_codepostal'] ?>">
             </div>
         </div>
+
+            <div class="form-group row">
+                <label for="staticPermis" class="col-sm-2 col-form-label">Permis:</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticPermis" value="<?php echo $donnée['utilisateurs_permis'] ?>">
+                </div>
+            </div>
 
 
 	<a href="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"><button class="buttonmodifier">Modifier</button></a>
