@@ -721,11 +721,34 @@ textarea {
 
 /*END CONTACT*/
 
+/*PROFIL*/
+
+.buttonmodifier {
+    background: #5E9BFC;
+
+    padding: 1em 2em;
+    color: white;
+    border: 1px;
+    border-radius: 5px;
+}
+
+.buttonmodifier:hover {
+    background: #1368F0;
+    transition: .5s;
+    border-radius: 5px;
+}
+
 /*MODIFPROFIL*/
 
 .modifprofil {
     margin-top: 200px;
+    margin-bottom: 200px;
 }
+
+.js-unhighlight-label {
+    color: black;
+}
+
 
 
 /*FOOTER*/

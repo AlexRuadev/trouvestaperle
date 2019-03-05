@@ -4,36 +4,63 @@ $données = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => 
 foreach ($données as $donnée) { ?>
 
 	<div class="contain">
-		<div>
-			<h4>Nom: </h4>
-			<p><?php echo $donnée['utilisateurs_nom'] ?></p>
+        <div class="modifprofil">
+
+        <div class="form-group row">
+        <label for="staticNom" class="col-sm-2 col-form-label">Nom:</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticNom" value="<?php echo $donnée['utilisateurs_nom'] ?>">
+            </div>
+        </div>
+
+        <div class="form-group row">
+        <label for="staticPrénom" class="col-sm-2 col-form-label">Prénom:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticPrénom" value="<?php echo $donnée['utilisateurs_prenom'] ?>">
+            </div>
 		</div>
-		<div>
-			<h4>Prénom: </h4>
-			<p><?php echo $donnée['utilisateurs_prenom'] ?></p>
-		</div>
-		<div>
-			<h4>Email: </h4>
-			<p><?php echo $donnée['utilisateurs_mail'] ?></p>
-		</div>
-		<div>
-			<h4>Téléphone: </h4>
-			<p><?php echo $donnée['utilisateurs_num'] ?></p>
-		</div>
-		<div>
-			<h4>Date de Naissance: </h4>
-			<p><?php echo strftime('%d/%m/%Y',strtotime($donnée['utilisateurs_naissance'])) ?></p>
-		</div>
-		<div>
-			<h4>Permis: </h4>
-			<p><?php echo $donnée['utilisateurs_permis'] ?></p>
-		</div>
-		<div>
-			<h4>Code Postal: </h4>
-			<p><?php echo$donnée['utilisateurs_codepostal'] ?></p>
-		</div>
-	</div>
-	<a href="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"><button>Modifier</button></a>
-	<?php
+
+        <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $donnée['utilisateurs_mail'] ?>">
+            </div>
+        </div>
+
+        <div class="form-group row">
+        <label for="staticPhone" class="col-sm-2 col-form-label">Téléphone:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticPhone" value="<?php echo $donnée['utilisateurs_num'] ?>">
+            </div>
+        </div>
+
+        <div class="form-group row">
+        <label for="staticDateDeNaissance" class="col-sm-2 col-form-label">Date de Naissance:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticDateDeNaissance" value="<?php echo strftime('%d/%m/%Y',strtotime($donnée['utilisateurs_naissance'])) ?>">
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+        <label for="staticPermis" class="col-sm-2 col-form-label">Permis:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticPermis" value="<?php echo $donnée['utilisateurs_permis'] ?>">
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+        <label for="staticCodePostal" class="col-sm-2 col-form-label">Code Postal:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticCodePostal" value="<?php echo$donnée['utilisateurs_codepostal'] ?>">
+            </div>
+        </div>
+
+
+	<a href="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"><button class="buttonmodifier">Modifier</button></a>
+        </div>
+
+    <?php
 }
 ?>
