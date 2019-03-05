@@ -10,7 +10,7 @@ class UcModel extends CI_Model {
     }
 
     //Recupere le niveau
-    function get_one($ttp_cv_cv_id, $ttp_competences_competence_id)
+    function get_one_uc($ttp_cv_cv_id, $ttp_competences_competence_id)
     {
         $this->db->select('uc_niv')
             ->from($this->table)
@@ -19,6 +19,10 @@ class UcModel extends CI_Model {
 
 
         return $this->db->get();
+    }
+    function get_all_uc()
+    {
+        return $this->db->get($this->table);
     }
 
     //Insertion du niveau
@@ -49,6 +53,20 @@ class UcModel extends CI_Model {
             ->update($this->table, $data);
     }
 
+    function get_all()
+    {
+        return $this->db->get($this->table);
+    }
+
+    function get_one($id)
+    {
+        $this->db->select("utilisateurs_id")
+            ->from($this->table)
+            ->where("utilisateurs_id", $id)
+            ->limit(1);
+
+        return $this->db->get();
+    }
 }
 
 /* End of file Model_product.php */

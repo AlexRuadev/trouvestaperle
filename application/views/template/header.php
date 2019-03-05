@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                    <a class="navbar-brand" href="#">Logo</a>
+                    <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>img/logosansnom.png" alt="logo"></a>
 
             </div>
             <div id="navbar" class="navbar-collapse collapse">
@@ -32,10 +32,10 @@
                     <li><a href="<?php echo base_url(); ?>">Accueil</a></li>
 					<!--Ne s'affiche que si une session est ouverte-->
 					<?php if (isset($_SESSION['utilisateurs_prenom'])) {
-						echo '<li><a href="' . base_url('cv/Formcv') . '">Ajouter un Cv</a></li>';
+						echo '<li><a href="' . base_url('cv/Formcv') . '">Ajouter un Cv</a></li>
+								<li><a href="Utilisateurs/viewprofil/'.$_SESSION['utilisateurs_id'].'">Profil</a></li>';
 					}
     				?>
-					<li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                     </li>
                 </ul>

@@ -10,13 +10,13 @@ class FormationModel extends CI_Model {
     }
 
     //Recupere toutes les formations
-    function get_all()
+    function get_all_for()
     {
         return $this->db->get($this->table);
     }
 
     //Recupere les formations d'un cv
-    function get_one($ttp_cv_cv_id)
+    function get_one_for($ttp_cv_cv_id)
     {
         $this->db->select("formations_id, formations_titre, formations_description, formations_niv, formations_debut, formations_fin, ttp_domaines_domaines_id")
             ->from($this->table)
