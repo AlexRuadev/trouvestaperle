@@ -18,38 +18,40 @@ class bdd extends CI_Controller {
 
     public function index()
     {
-        $data = $this->CompetencesModel->get_all();
-        //$data = $this->CvModel->get_all_cv();
-        //$data = $this->DomaineModel->get_all_do();
-        //$data = $this->ExperienceModel->get_all_ex();
-        //$data = $this->FormatonModel->get_all_for();
-        //$data = $this->UcModel->get_all_uc();
-        //$data = $this->UtilisateursModel->get_all_uti();
-
-
-        if ($data->num_rows() > 0) {
-            foreach ($data->result() as $row) {
-                $result[] = $this->view(intval($row->id));
-            }
-            echo json_encode($result);
-        } else {
+        $data = $this->CvModel->get_all_cv();
+        if ($data->num_rows() > 0){
+            echo json_encode($data->result_array(),true);
+        }
+        else{
             header("HTTP/1.0 204 No Content");
-            echo json_encode("204: no products in the database");
+            echo json_encode("204: no products in the database",true);
         }
     }
 
     public function view($id)
     {
-        $data = $this->Model_product->get_one($id);
 
-        if ($data->num_rows() > 0) {
-            foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->id), "title" => $row->title);
-            }
-            echo json_encode($result);
+        $dataCv = $this->CvModel->get_one_cv($id)->result_array();
+
+        if(isset($dataCv[0]['cv_id'])){
+
+
+            $idUti = $dataCv[0]['ttp_utilisateurs_utilisateurs_id'];
+            $idcv = $dataCv[0]['cv_id'];
+            $result['Uti'] = $this->UtilisateursModel->get_one_uti($idUti)->result_array();
+            $result['comp'] = $this->CompetencesModel->get_one($idcv)->result_array();
+            $result['Form'] = $this->FormationModel->get_one_for($idcv)->result_array();
+            $result['Exp'] = $this->ExperienceModel->get_one_ex($idcv)->result_array();
+
+
+
+
+
+
+            echo json_encode($result,true);
         } else {
             header("HTTP/1.0 404 Not Found");
-            echo json_encode("404 : Product #$id not found");
+            echo json_encode("404 : Product #$id not found",true);
         }
     }
 

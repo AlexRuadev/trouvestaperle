@@ -9,6 +9,11 @@ class CvModel extends CI_Model {
 		$this->table = "ttp_cv";
 	}
 
+function get_all()
+{
+return $this->db->from($this->table)->get();
+}
+
 	//Récupère tous les cv
 	function get_all_cv($id)
 	{
@@ -20,13 +25,13 @@ class CvModel extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
-
     //Recupere les cv d'un utilisateur
     function get_one_cv($cv_id)
     {
-        $this->db->select("cv_id, ttp_utilisateurs_utilisateur_id")
+        $this->db->select("*")
             ->from($this->table)
-            ->where("cv_id", $cv_id);
+            ->where("cv_id", $cv_id)
+            -> limit(1);
 
         return $this->db->get();
     }

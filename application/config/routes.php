@@ -58,6 +58,6 @@ $route['accueil'] = '/';
 $route['inscription'] = 'Utilisateurs/InscriptionUser';
 $route['connexion'] = 'Utilisateurs/connectionUser';
 $route["api/v1/bdd"]["get"] = "api/v1/bdd";
+$route["api/v1/bdd/(:num)"]["get"] = "api/v1/bdd/view/$1";
 $route['email'] = 'Contact/email';
 $route['formCv'] = 'Cv/formCv';
-

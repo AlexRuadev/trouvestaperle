@@ -10,12 +10,11 @@ class UcModel extends CI_Model {
     }
 
     //Recupere le niveau
-    function get_one_uc($ttp_cv_cv_id, $ttp_competences_competence_id)
+    function get_one_uc($ttp_cv_cv_id)
     {
-        $this->db->select('uc_niv')
+        $this->db->select('uc_niv','ttp_competences_competences_id')
             ->from($this->table)
-            ->where("ttp_cv_cv_id", $ttp_cv_cv_id)
-            ->where("ttp_competences_competence_id", $ttp_competences_competence_id);
+            ->where("ttp_cv_cv_id", $ttp_cv_cv_id);
 
 
         return $this->db->get();
@@ -56,16 +55,6 @@ class UcModel extends CI_Model {
     function get_all()
     {
         return $this->db->get($this->table);
-    }
-
-    function get_one($id)
-    {
-        $this->db->select("utilisateurs_id")
-            ->from($this->table)
-            ->where("utilisateurs_id", $id)
-            ->limit(1);
-
-        return $this->db->get();
     }
 }
 

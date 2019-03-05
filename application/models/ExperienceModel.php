@@ -7,6 +7,7 @@ class ExperienceModel extends CI_Model {
     {
         parent::__construct();
         $this->table = "ttp_experiences";
+        $this->jointable = "ttp_domaines";
     }
     //Recupere toutes les expériences
     function get_all_ex()
@@ -17,10 +18,10 @@ class ExperienceModel extends CI_Model {
     //Recupere une experience d'un cv
     function get_one_ex($ttp_cv_cv_id)
     {
-        $this->db->select("experiences_id, experiences_titre, experiences_description, experiences_niv, experiences_debut, experiences_fin, ttp_domaines_domaines_id")
+        $this->db->select("*")
             ->from($this->table)
             ->where("ttp_cv_cv_id", $ttp_cv_cv_id)
-            ->limit(1);
+            ->join($this->jointable, "ttp_domaines.domaines_id = ttp_experiences.ttp_domaines_domaines_id");
 
         return $this->db->get();
     }

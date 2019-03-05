@@ -97,10 +97,9 @@ class UtilisateursModel extends CI_Model {
 
     function get_one_uti($utilisateurs_id)
     {
-        $this->db->select('uc_niv')
+        $this->db->select('*')
             ->from($this->table)
-            ->where("utilisateurs_id", $utilisateurs_id)
-            ->limite(1);
+            ->where("utilisateurs_id", $utilisateurs_id);
 
 
         return $this->db->get();

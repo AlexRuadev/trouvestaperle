@@ -7,6 +7,7 @@ class CompetencesModel extends CI_Model {
     {
         parent::__construct();
         $this->table = "ttp_competences";
+        $this->jointable = "ttp_uc";
     }
 
     //Recupere toutes les competences
@@ -21,12 +22,12 @@ class CompetencesModel extends CI_Model {
     }
 
     //Recupere une competence
-    function get_one($competences_id)
+    function get_one($idcv)
     {
-        $this->db->select("competences_id, competences_name")
+        $this->db->select("*")
             ->from($this->table)
-            ->where("competences_id", $competences_id)
-            ->limit(1);
+            ->join($this->jointable, "ttp_competences.competences_id = ttp_uc.ttp_competences_competences_id")
+            ->where("ttp_cv_cv_id", $idcv);
 
         return $this->db->get();
     }
