@@ -4,7 +4,7 @@
 
 <div class="footer">
     <div class="contain">
-        <div class="logofooter"><img class="footerlogo center-block" src="img/logo.png" alt="logo"></div>
+        <div class="logofooter"><img class="footerlogo center-block" src="<?php echo base_url(); ?>img/logo.png" alt="logo"></div>
 
         <div class="copyright"> ©All rights reserved Trouvestaperle.com  2019</div>
 
