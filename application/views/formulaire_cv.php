@@ -5,13 +5,13 @@ echo validation_errors('<span class="error">', '</span>');
     <div class="margeform">
         <form id="msform" method="post" action="formCv">
             <!-- progressbar -->
-            <ul id="progressbar">
+            <ul id="progressbar" class="progressbar">
                 <li class="active">Diplomes/Formations</li>
                 <li>Experiences</li>
                 <li>Competences</li>
             </ul>
             <!-- fieldsets -->
-            <fieldset>
+            <fieldset id="test" class="test">
                 <h2 class="fs-title">Diplomes/Formations</h2>
                 <h3 class="fs-subtitle">Etape 1</h3>
                 <input type="text" name="titre" placeholder="Titre">
@@ -36,9 +36,10 @@ echo validation_errors('<span class="error">', '</span>');
                     ?>
                 </select>
 
+                <input type="button" onclick="myFunction()" name="next" class="action-button" value="Suivant" >
                 <input type="button" name="next" class="next action-button" value="Suivant" >
             </fieldset>
-            <fieldset>
+            <fieldset class="test2">
                 <h2 class="fs-title">Experiences</h2>
                 <h3 class="fs-subtitle">Vos experiences significatives</h3>
                 <input type="text" name="titre2" placeholder="titre" />
@@ -59,7 +60,7 @@ echo validation_errors('<span class="error">', '</span>');
                 <input type="button" name="previous" class="previous action-button" value="Precedent" />
                 <input type="button" name="next" class="next action-button" value="Suivant" />
             </fieldset>
-            <fieldset>
+            <fieldset class="test3">
                 <h2 class="fs-title">Competences</h2>
                 <select name="competences" id="competences" style="color: black; width: 265px">
                     <?php

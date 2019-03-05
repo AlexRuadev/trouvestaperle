@@ -89,3 +89,13 @@ $(".previous").click(function(){
 $(".submit").click(function(){
     return false;
 })
+/*
+
+ function myFunction(){
+     $( ".test").clone().appendTo( ".progressbar" );
+     var element = document.getElementById("kebab");
+     element.classList.remove("kebab");
+     element.classList.add("display");
+}
+
+*/
