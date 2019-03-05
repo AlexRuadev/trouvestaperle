@@ -33,10 +33,11 @@
 					<!--Ne s'affiche que si une session est ouverte-->
 					<?php if (isset($_SESSION['utilisateurs_prenom'])) {
 						echo '<li><a href="' . base_url('cv/Formcv') . '">Ajouter un Cv</a></li>
-								<li><a href="Utilisateurs/viewprofil/'.$_SESSION['utilisateurs_id'].'">Profil</a></li>';
+								<li><a href="' . base_url('Utilisateurs/viewProfil/') . $_SESSION['utilisateurs_id'].'">Profil</a></li>';
 					}
     				?>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href=" <?php
+{ echo  base_url('#contact') ; } ?>">Contact</a></li>
                     </li>
                 </ul>
             </div>
