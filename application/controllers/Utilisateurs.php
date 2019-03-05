@@ -43,9 +43,7 @@ class Utilisateurs extends CI_Controller
 
 
             $dates['données'] = $this->UtilisateursModel->Utilisateurs();
-            echo '<pre>';
-            print_r($dates['données']);
-            echo '</pre>';
+
             foreach ($dates['données'] as $dates['donnée']) {
 
                 //On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
