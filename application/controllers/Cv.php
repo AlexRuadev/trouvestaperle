@@ -12,6 +12,7 @@ class Cv extends CI_Controller
         parent::__construct();
         $this->load->helper('form');
         $this->load->helper('url_helper');
+        $this->load->library('Confirmcv');
         $this->load->model("CvModel");
         $this->load->model("CompetencesModel");
         $this->load->model("DomaineModel");
@@ -68,12 +69,14 @@ class Cv extends CI_Controller
                 $this->CvModel->create_cv($id);
                 $cv_id = $this->db->insert_id();
 
+
                 $this->FormationModel->create_formation($cv_id);
 
                 $this->ExperienceModel->create_experience($cv_id);
 
                 $this->UcModel->creation_lien_competences($cv_id);
 
+				$this->confirmcv->confirmationcv();
 
 
                 $this->load->view('template/header');

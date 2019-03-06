@@ -20,49 +20,61 @@ class Utilisateurs extends CI_Controller
 	//Fonction de listing des différents utilisateurs
 	public function viewProfil($id)
 	{
-		//on vérifie si la session existe
-		if (isset($_SESSION['utilisateurs_id'])) {
-			//On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
-			if ($id === $_SESSION['utilisateurs_id']){
-				//On charge la vue correspondante
-				$this->load->view('template/header.php');
-				$this->load->view('profil.php');
-				$this->load->view('template/footer.php');
-			}else{
+
+		//On va chercher les données utilisateurs en bdd pour pouvoir les montrer ensuite dans la vue
+		$date['données'] = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $_SESSION['utilisateurs_id']))->result_array();
+		foreach ($date['données'] as $date['donnée']) {
+
+			//on vérifie si la session existe
+			if (isset($_SESSION['utilisateurs_id'])) {
+				//On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
+				if ($id === $_SESSION['utilisateurs_id']) {
+					//On charge la vue correspondante
+					$this->load->view('template/header.php');
+					$this->load->view('profil.php', $date);
+					$this->load->view('template/footer.php');
+				} else {
+					show_404();
+				}
+			} else {
 				show_404();
 			}
-		}else{
-			show_404();
 		}
 	}
 
 	public function modifProfil($id)
 	{
-		//on vérifie si la session existe
-		if (isset($_SESSION['utilisateurs_id'])) {
-			//On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
-			if ($id === $_SESSION['utilisateurs_id']){
-				$this->form_validation->set_rules('nom', 'nom', 'trim|required|strip_tags|xss_clean|min_length[3]|max_length[45]');
-				$this->form_validation->set_rules('prenom', 'prénom', 'trim|required|strip_tags|xss_clean|min_length[3]|max_length[45]');
-				$this->form_validation->set_rules('mail', 'email', 'trim|strip_tags|required|valid_email');
-				$this->form_validation->set_rules('telephone', 'telephone', 'trim|is_numeric|xss_clean|min_length[6]|max_length[15]');
-				$this->form_validation->set_rules('codepostal', 'Code Postal', 'trim|is_numeric|xss_clean|min_length[2]|max_length[5]');
-				$this->form_validation->set_rules('permis', 'Permis', 'trim|strip_tags|xss_clean|min_length[2]|max_length[8]');
 
-				if ($this->form_validation->run() == false){
-					$this->load->view('template/header.php');
-					$this->load->view('modifprofil.php');
-					$this->load->view('template/footer.php');
-				}else{
-					$this->UtilisateursModel->modifUser();
-					redirect(base_url());
+		//On va chercher les données utilisateurs en bdd pour pouvoir les montrer ensuite dans la vue
+		$date['données'] = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $_SESSION['utilisateurs_id']))->result_array();
+		foreach ($date['données'] as $date['donnée']) {
+
+			//on vérifie si la session existe
+			if (isset($_SESSION['utilisateurs_id'])) {
+				//On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
+				if ($id === $_SESSION['utilisateurs_id']) {
+					$this->form_validation->set_rules('nom', 'nom', 'trim|required|strip_tags|xss_clean|min_length[3]|max_length[45]');
+					$this->form_validation->set_rules('prenom', 'prénom', 'trim|required|strip_tags|xss_clean|min_length[3]|max_length[45]');
+					$this->form_validation->set_rules('mail', 'email', 'trim|strip_tags|required|valid_email');
+					$this->form_validation->set_rules('telephone', 'telephone', 'trim|is_numeric|xss_clean|min_length[6]|max_length[15]');
+					$this->form_validation->set_rules('codepostal', 'Code Postal', 'trim|is_numeric|xss_clean|min_length[2]|max_length[5]');
+					$this->form_validation->set_rules('permis', 'Permis', 'trim|strip_tags|xss_clean|min_length[2]|max_length[8]');
+
+					if ($this->form_validation->run() == false) {
+						$this->load->view('template/header.php');
+						$this->load->view('modifprofil.php', $date);
+						$this->load->view('template/footer.php');
+					} else {
+						$this->UtilisateursModel->modifUser();
+						redirect(base_url());
+					}
+
+				} else {
+					show_404();
 				}
-
-			}else{
+			} else {
 				show_404();
 			}
-		}else{
-			show_404();
 		}
 
 	}

@@ -26,17 +26,19 @@ class MailController extends CI_Controller
 		$objet = $data_form['subject'];
 		$message = $data_form['message'];
 
+		//Définition des règles
 		$this->form_validation->set_rules('name', 'Nom', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('subject', 'Objet', 'required');
 		$this->form_validation->set_rules('message', 'Message', 'required');
 
 
-//		if ($this->form_validation->run() === false){
-//			$this->load->view('template/header.php');
-//			$this->load->view(base_url());
-//			$this->load->view('template/footer.php');
-//		}else {
+		//Soumission des formulaires
+		if ($this->form_validation->run() === false){
+			$this->load->view('template/header.php');
+			$this->load->view('welcome_message');
+			$this->load->view('template/footer.php');
+		}else {
 			//Configuration des paramètres pour la librairies email
 			$config = array(
 				'protocol' => 'smtp',
@@ -62,7 +64,7 @@ class MailController extends CI_Controller
 			$this->email->message($message);
 
 			$this->email->send();
-//		}
+		}
 
 	}
 
