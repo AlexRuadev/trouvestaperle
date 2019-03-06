@@ -91,7 +91,8 @@ class Utilisateurs extends CI_Controller
 		$this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|min_length[3]|max_length[45]');
 		$this->form_validation->set_rules('prenom', 'prénom', 'trim|required|xss_clean|min_length[3]|max_length[45]');
 		$this->form_validation->set_rules('mail', 'email', 'trim|strip_tags|required|valid_email|is_unique[ttp_utilisateurs.utilisateurs_mail]', array('is_unique' => 'Cette adresse mail existe déjà'));
-		$this->form_validation->set_rules('password', 'mot de passe', 'trim|strip_tags|required|min_length[6]');
+		$this->form_validation->set_rules('password', 'Mot de passe', 'trim|strip_tags|required|min_length[6]');
+        $this->form_validation->set_rules('password1', 'Mot de passe', 'trim|strip_tags|required|min_length[6]|matches[password]');
 
 		//Lancement de la validation du formulaire
 		if ($this->form_validation->run() == false){

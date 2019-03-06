@@ -1,5 +1,5 @@
 <?php
-echo validation_errors();
+
 ?>
 <section class="full-width-img">
     <div class="margeform">
