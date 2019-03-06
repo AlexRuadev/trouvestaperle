@@ -20,19 +20,25 @@ class Utilisateurs extends CI_Controller
 	//Fonction de listing des différents utilisateurs
 	public function viewProfil($id)
 	{
-		//on vérifie si la session existe
-		if (isset($_SESSION['utilisateurs_id'])) {
-			//On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
-			if ($id === $_SESSION['utilisateurs_id']){
-				//On charge la vue correspondante
-				$this->load->view('template/header.php');
-				$this->load->view('profil.php');
-				$this->load->view('template/footer.php');
-			}else{
+
+		//On va chercher les données utilisateurs en bdd pour pouvoir les montrer ensuite dans la vue
+		$date['données'] = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $_SESSION['utilisateurs_id']))->result_array();
+		foreach ($date['données'] as $date['donnée']) {
+
+			//on vérifie si la session existe
+			if (isset($_SESSION['utilisateurs_id'])) {
+				//On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
+				if ($id === $_SESSION['utilisateurs_id']) {
+					//On charge la vue correspondante
+					$this->load->view('template/header.php');
+					$this->load->view('profil.php', $date);
+					$this->load->view('template/footer.php');
+				} else {
+					show_404();
+				}
+			} else {
 				show_404();
 			}
-		}else{
-			show_404();
 		}
 	}
 

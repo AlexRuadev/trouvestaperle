@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$données = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $_SESSION['utilisateurs_id']))->result_array();
-foreach ($données as $donnée) { ?>
+?>
 
 	<div class="contain">
         <div class="modifprofil">
@@ -59,7 +58,3 @@ foreach ($données as $donnée) { ?>
 
 	<a href="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"><button class="buttonmodifier">Modifier</button></a>
         </div>
-
-    <?php
-}
-?>

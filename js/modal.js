@@ -14,6 +14,16 @@ closeBtn.addEventListener('click',closeModal);
 // listen for outside click
 window.addEventListener('click',outsideClick);
 
+//listen for noclosemodal
+if ($('#fake').hasClass('testp')) {
+	window.addEventListener('load', noclosemodal);
+}else{
+	window.addEventListener('load', closeModal);
+}
+
+
+
+
 // function to open modal
 function openModal(){
     modal.style.display = 'block';
@@ -31,7 +41,10 @@ function outsideClick(e){
     }
 }
 
-//Fonction pour interrompre le formulaire si erreur qui sera appelé par le onsubmit
+function noclosemodal() {
+		modal.style.display = 'block'
+}
+
 
 
 
