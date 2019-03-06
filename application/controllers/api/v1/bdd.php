@@ -18,7 +18,7 @@ class bdd extends CI_Controller {
 
     public function index()
     {
-        $data = $this->CvModel->get_all_cv();
+        $data = $this->CvModel->get_all();
         if ($data->num_rows() > 0){
             echo json_encode($data->result_array(),true);
         }
