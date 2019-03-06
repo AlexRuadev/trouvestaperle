@@ -294,7 +294,7 @@ body {
     border: 0 none;
     border-radius: 3px;
     box-shadow: 0 0 60px 2px #585B6C;
-    padding: 20px 30px;
+    padding: 20px 30px 5px 30px;
     box-sizing: border-box;
     width: 80%;
     margin: 0 10%;
@@ -328,7 +328,7 @@ body {
     border-radius: 1px;
     cursor: pointer;
     padding: 10px 5px;
-    margin: 10px 5px;
+    margin: 8px 5px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
