@@ -440,12 +440,6 @@ i.fa.fa-calendar{
 
 
 
-/* FORMULAIRE INSCRIPTION */
-
-
-
-
-
 /*fenetre pop up*/
 
 .buttonmodal {
@@ -819,7 +813,7 @@ Page success
 }
 
 .success h1 {
-    color: #26cf36;
+    color: #27AE60;
 }
 
 .title-icon {
@@ -856,14 +850,14 @@ Page success
     border-radius: 4px;
 }
 
-.modal-footer .conf-but:hover {
-    background: #eee;
+.modal-footer .conf-but:hover {;
     cursor: pointer;
     opacity: .8;
+    text-decoration: underline;
 }
 
 .modal-footer .conf-but.green {
-    color: #26cf36;
+    color: #27AE60;
 }
 
 /*FOOTER*/

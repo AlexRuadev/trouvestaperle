@@ -51,7 +51,7 @@ class Utilisateurs extends CI_Controller
                     $this->form_validation->set_rules('nom', 'nom', 'trim|required|strip_tags|min_length[3]|max_length[45]');
                     $this->form_validation->set_rules('prenom', 'prénom', 'trim|required|strip_tags|min_length[3]|max_length[45]');
                     $this->form_validation->set_rules('mail', 'email', 'trim|strip_tags|required|valid_email');
-                    $this->form_validation->set_rules('telephone', 'telephone', 'trim|is_numeric|required|min_length[9]|max_length[10]');
+                    $this->form_validation->set_rules('telephone', 'telephone', 'trim|is_numeric|min_length[9]|max_length[10]');
                     $this->form_validation->set_rules('codepostal', 'Code Postal', 'trim|is_numeric|min_length[2]|max_length[5]');
                     $this->form_validation->set_rules('permis', 'permis', 'trim|strip_tags|max_length[8]');
 
