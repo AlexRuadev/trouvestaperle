@@ -26,21 +26,6 @@ class ExperienceModel extends CI_Model {
         return $this->db->get();
     }
 
-    //Insertion experiences en bdd
-    function post()
-    {
-        $data = array(
-            "experiences_titre" => $experiences_titre,
-            "experiences_description" => $experiences_description,
-            "experiences_niv" => $experiences_niv,
-            "experiences_debut" => $experiences_debut,
-            "experiences_fin" => $experiences_fin,
-            "ttp_domaines_domaines_id" => $ttp_domaines_domaines_id
-        );
-
-        $this->db->insert($this->table, $data)
-            ->where("ttp_cv_cv_id", $ttp_cv_cv_id);
-    }
 
     function create_experience($cv_id)
     {

@@ -89,6 +89,7 @@ $(".previous").click(function(){
 $(".submit").click(function(){
     return false;
 })
+
 /*
 
  function myFunction(){
@@ -97,5 +98,29 @@ $(".submit").click(function(){
      element.classList.remove("kebab");
      element.classList.add("display");
 }
+
+<script>
+            // Script affichage 3e partie
+            var num = 1;
+            document.getElementById('addQualif').addEventListener("click",addInputQualif);
+
+            function addInputQualif(){
+                var demo = document.getElementById('demoQualif');
+                demo.insertAdjacentHTML('beforeend',
+
+                    '<div>' +
+                    '<div class="form-holder" >' +
+                    '<a class="form-label" style="float:left;">Diplômes Reçus</a> <br>' +
+                    '<input name="tname'+num+'" type="text" placeholder="Ex : Baccalauréat Général" style="float:left;width: 75%;" />' +
+                    '</div>' +
+
+                    '<div class="form-holder" style="float: right; width: 18%;">' +
+                    '<input name="tquan'+num+'" type="date" style="width: 100%;" />' +
+                    '</div>' +
+                    '</div><div class="clear"></div>');
+                num++;
+            }
+        </script>
+
 
 */

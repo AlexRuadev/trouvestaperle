@@ -40,30 +40,39 @@ class Utilisateurs extends CI_Controller
 	{
 		//on vérifie si la session existe
 		if (isset($_SESSION['utilisateurs_id'])) {
-			//On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
-			if ($id === $_SESSION['utilisateurs_id']){
-				$this->form_validation->set_rules('nom', 'nom', 'trim|required|strip_tags|xss_clean|min_length[3]|max_length[45]');
-				$this->form_validation->set_rules('prenom', 'prénom', 'trim|required|strip_tags|xss_clean|min_length[3]|max_length[45]');
-				$this->form_validation->set_rules('mail', 'email', 'trim|strip_tags|required|valid_email');
-				$this->form_validation->set_rules('telephone', 'telephone', 'trim|is_numeric|xss_clean|min_length[6]|max_length[15]');
-				$this->form_validation->set_rules('codepostal', 'Code Postal', 'trim|is_numeric|xss_clean|min_length[2]|max_length[5]');
-				$this->form_validation->set_rules('permis', 'Permis', 'trim|strip_tags|xss_clean|min_length[2]|max_length[8]');
 
-				if ($this->form_validation->run() == false){
-					$this->load->view('template/header.php');
-					$this->load->view('modifprofil.php');
-					$this->load->view('template/footer.php');
-				}else{
-					$this->UtilisateursModel->modifUser();
-					redirect(base_url());
-				}
 
-			}else{
-				show_404();
-			}
-		}else{
-			show_404();
-		}
+            $dates['données'] = $this->UtilisateursModel->Utilisateurs();
+
+            foreach ($dates['données'] as $dates['donnée']) {
+
+                //On verifie que l'id dans l'url correspondent bien à celui de la session ouverte
+                if ($id === $_SESSION['utilisateurs_id']) {
+                    $this->form_validation->set_rules('nom', 'nom', 'trim|required|strip_tags|min_length[3]|max_length[45]');
+                    $this->form_validation->set_rules('prenom', 'prénom', 'trim|required|strip_tags|min_length[3]|max_length[45]');
+                    $this->form_validation->set_rules('mail', 'email', 'trim|strip_tags|required|valid_email');
+                    $this->form_validation->set_rules('telephone', 'telephone', 'trim|is_numeric|required|min_length[9]|max_length[10]');
+                    $this->form_validation->set_rules('codepostal', 'Code Postal', 'trim|is_numeric|min_length[2]|max_length[5]');
+                    $this->form_validation->set_rules('permis', 'permis', 'trim|strip_tags|max_length[8]');
+
+                    if ($this->form_validation->run() == false) {
+                        $this->load->view('template/header.php');
+                        $this->load->view('modifprofil.php', $dates);
+                        $this->load->view('template/footer.php');
+                    } else {
+                        $this->UtilisateursModel->modifUser();
+                        redirect(base_url('/Utilisateurs/viewProfil/' . $_SESSION['utilisateurs_id']));
+                    }
+
+                } else {
+                    show_404();
+                }
+            }
+        }
+        else{
+            redirect(base_url());
+            }
+
 
 	}
 

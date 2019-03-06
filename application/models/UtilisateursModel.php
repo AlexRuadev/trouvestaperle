@@ -8,12 +8,30 @@ class UtilisateursModel extends CI_Model {
 		$this->table = "ttp_utilisateurs";
 	}
 
+	public function utilisateur($id){
+
+        $this->db->select("utilisateur_id")
+            ->from($this->table)
+            ->where("ttp_utilisateurs_utilisateurs_id", $id)
+            ->order_by('cv_created_at ', 'DESC');
+
+		return $this->db->get()->result_array();
+    }
 	//Fonction qui va cherche tout les utilisateurs enregistre en BDD
 	public function selectallAction()
 	{
 		$query = $this->db->get('ttp_utilisateurs');
 		return $query->result();
 	}
+    public function Utilisateurs()
+    {
+        //On définit notre id
+        $id = $this->session->userdata('utilisateurs_id');
+        $query = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $id));
+
+        return $query->result_array();
+
+    }
 
 
 	//Fonction allant cherche l'utilisateurs selon l'id de la session
@@ -26,6 +44,7 @@ class UtilisateursModel extends CI_Model {
 		return $query->result();
 
 	}
+
 	public function modifUser()
 	{
 
@@ -36,28 +55,18 @@ class UtilisateursModel extends CI_Model {
 		$data_form = $this->input->post(NULL, TRUE);
 
 		//on détermine l'insertion des valeurs dans ce formulaire
-		if ($data_form) {
-			$nom = $data_form['nom'];
-			$prenom = $data_form['prenom'];
-			$email = $data_form['mail'];
-			$numero = $data_form['telephone'];
-			$codepostal = $data_form['codepostal'];
-			$permis = $data_form['permis'];
-			$date = $data_form['naissance'];
+
 			$datas = array(
-				'utilisateurs_nom' => $nom,
-				'utilisateurs_prenom' => $prenom,
-				'utilisateurs_mail' => $email,
-				'utilisateurs_num' => $numero,
-				'utilisateurs_codepostal' => $codepostal,
-				'utilisateurs_permis' => $permis,
-				'utilisateurs_naissance' => $date,
-				'utilisateurs_token' => bin2hex(random_bytes(100)),
+				'utilisateurs_nom' => ucfirst($data_form['nom']),
+				'utilisateurs_prenom' => $data_form['prenom'],
+				'utilisateurs_mail' => $data_form['mail'],
+				'utilisateurs_num' => $data_form['telephone'],
+				'utilisateurs_codepostal' => $data_form['codepostal'],
+				'utilisateurs_permis' => $data_form['permis'],
+				'utilisateurs_naissance' => $data_form['naissance'],
 			);
 			$this->db->where('utilisateurs_id', $_SESSION['utilisateurs_id']);
 			$this->db->update('ttp_utilisateurs', $datas);
-		}
-
 	}
 
 
@@ -76,7 +85,7 @@ class UtilisateursModel extends CI_Model {
 			$email = $data_form['mail'];
 			$password = password_hash($data_form['password'], PASSWORD_DEFAULT);
 			$datas = array(
-				'utilisateurs_nom' => $nom,
+				'utilisateurs_nom' => ucfirst($nom),
 				'utilisateurs_prenom' => $prenom,
 				'utilisateurs_mail' => $email,
 				'utilisateurs_motdepasse' => $password,

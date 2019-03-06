@@ -19,6 +19,13 @@ class Cv extends CI_Controller
         $this->load->model("FormationModel");
         $this->load->model("UcModel");
         $this->load->model("UtilisateursModel");
+
+    }
+    public function affichageSuccess(){
+
+        $this->load->view('template/header');
+        $this->load->view('success');
+        $this->load->view('template/footer');
     }
 
     //Fonction pour enregistrer les valeurs du CV en BDD
@@ -36,19 +43,17 @@ class Cv extends CI_Controller
 
 
 
-
-            $this->form_validation->set_rules('titre', 'titre', 'trim|strip_tags|required');
-            $this->form_validation->set_rules('description', 'description', 'trim|strip_tags|required');
-            $this->form_validation->set_rules('niveau', 'niveau', 'required');
-            $this->form_validation->set_rules('debutFormation', 'debutFormation', 'required');
-            $this->form_validation->set_rules('finFormation', 'finFormation', 'required');
+            $this->form_validation->set_rules('titre', 'Titre', 'trim|strip_tags|required');
+            $this->form_validation->set_rules('description', 'Description', 'trim|strip_tags|required');
+            $this->form_validation->set_rules('niveau', 'Niveau', 'required');
+            $this->form_validation->set_rules('debutFormation', 'debutFormation');
+            $this->form_validation->set_rules('finFormation', 'finFormation');
             $this->form_validation->set_rules('domaines', 'domaines', 'trim|strip_tags|required');
-
-            $this->form_validation->set_rules('titre2', 'titre2', 'trim|strip_tags|required');
-            $this->form_validation->set_rules('description2', 'description2', 'trim|strip_tags|required');
-            $this->form_validation->set_rules('anciennete', 'anciennete', 'required');
-            $this->form_validation->set_rules('debutExperience', 'debutExperience', 'required');
-            $this->form_validation->set_rules('finExperience', 'finExperience', 'required');
+            $this->form_validation->set_rules('titre2', 'Titre', 'trim|strip_tags|required');
+            $this->form_validation->set_rules('description2', 'Description', 'trim|strip_tags|required');
+            $this->form_validation->set_rules('anciennete', 'Anciennete', 'required');
+            $this->form_validation->set_rules('debutExperience', 'debutExperience');
+            $this->form_validation->set_rules('finExperience', 'finExperience');
             $this->form_validation->set_rules('domaines2', 'domaines2', 'trim|strip_tags|required');
 
 
@@ -68,6 +73,8 @@ class Cv extends CI_Controller
                 $this->CvModel->create_cv($id);
                 $cv_id = $this->db->insert_id();
 
+                $this->confirmcv->confirmationcv();
+
                 $this->FormationModel->create_formation($cv_id);
 
                 $this->ExperienceModel->create_experience($cv_id);
@@ -77,14 +84,13 @@ class Cv extends CI_Controller
 
 
                 $this->load->view('template/header');
-                $this->load->view('formulaire_cv', array("competences" => $competences,
-                    "domaines" => $domaines)) ;
+                $this->load->view('success');
                 $this->load->view('template/footer');
 
             }
 
         }else{
-            show_404();
+            redirect(base_url());
             }
 }
 }

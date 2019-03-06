@@ -1,5 +1,5 @@
 <?php
-echo validation_errors('<span class="error">', '</span>');
+echo validation_errors();
 ?>
 <section class="full-width-img">
     <div class="margeform">
@@ -14,9 +14,10 @@ echo validation_errors('<span class="error">', '</span>');
             <fieldset id="test" class="test">
                 <h2 class="fs-title">Diplomes/Formations</h2>
                 <h3 class="fs-subtitle">Etape 1</h3>
-                <input type="text" name="titre" placeholder="Titre">
-                <textarea name="description" placeholder="Description"></textarea>
-                <select name="niveau" style="color: black; width: 265px">
+                <input type="text" name="titre" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('titre', '', ''); }else{echo 'Titre';} ?>">
+                <textarea name="description" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('description', '', ''); }else{echo 'description';} ?>"></textarea>
+                <label class="niveau">Niveau</label>
+                <select name="niveau" class="select">
                     <!--changer BDD int formation_niv-->
                     <option value="CAP/BEP">CAP/BEP</option>
                     <option value="BAC">BAC</option>
@@ -25,8 +26,11 @@ echo validation_errors('<span class="error">', '</span>');
                     <option value="+4">+4</option>
                     <option value="+5">+5</option>
                 </select>
-                <input type="date" name="debutFormation" placeholder="debut">
-                <input type="date" name="finFormation" placeholder="fin">
+                <label for="debutFormation" class="debut"><i class="fa fa-calendar"></i>Début</label>
+                <input type="date" name="debutFormation">
+                <label for="finFormation" class="fin"><i class="fa fa-calendar"></i>Fin</label>
+                <input type="date" name="finFormation">
+                <label for="domaines" class="Domaines">Domaines</label>
                 <select name="domaines" style="color: black; width: 265px">
                     <!--foreach domaines-->
                     <?php
@@ -35,19 +39,28 @@ echo validation_errors('<span class="error">', '</span>');
                     }
                     ?>
                 </select>
-
-                <input type="button" onclick="myFunction()" name="next" class="action-button" value="Suivant" >
                 <input type="button" name="next" class="next action-button" value="Suivant" >
             </fieldset>
             <fieldset class="test2">
                 <h2 class="fs-title">Experiences</h2>
                 <h3 class="fs-subtitle">Vos experiences significatives</h3>
-                <input type="text" name="titre2" placeholder="titre" />
-                <textarea name="description2" placeholder="Description"></textarea>
-                <input type="text" name="anciennete" placeholder="anciennete" />
+                <input type="text" name="titre2" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('titre2', '', ''); }else{echo 'Titre';} ?>" />
+                <textarea name="description2" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('description', '', ''); }else{echo 'description';} ?>"></textarea>
+                <label class="anciennete">Ancienneté</label>
+                <select name="anciennete">
+                    <option>Moins d'1 an</option>
+                    <option>1 an</option>
+                    <option>2 ans</option>
+                    <option>3 ans</option>
+                    <option>4 ans</option>
+                    <option>5 ans</option>
+                    <option>Plus de 5 ans</option>
                 </select>
+                <label for="debutExperience" class="debut"><i class="fa fa-calendar"></i>Début</label>
                 <input type="date" name="debutExperience" placeholder="debut">
+                <label for="finExperience" class="fin"><i class="fa fa-calendar"></i>Fin</label>
                 <input type="date" name="finExperience" placeholder="fin">
+                <label for="domaines" class="Domaines">Domaines</label>
                 <select name="domaines2" style="color: black; width: 265px">
                     <!--foreach domaines-->
                     <?php
@@ -69,7 +82,8 @@ echo validation_errors('<span class="error">', '</span>');
                     }
                     ?>
                 </select>
-                <select name="niveau2" style="color: black; width: 265px">
+                <label class="niveau">Niveau</label>
+                <select name="niveau2">
                     <!--changer BDD int formation_niv-->
                     <option value="1">1</option>
                     <option value="2">2</option>

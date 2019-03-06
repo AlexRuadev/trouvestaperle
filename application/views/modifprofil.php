@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$données = $this->db->get_where('ttp_utilisateurs', array('utilisateurs_id' => $_SESSION['utilisateurs_id']))->result_array();
-foreach ($données as $donnée) { ?>
+
+?>
 
 <div class="container">
-	<form class="modifprofil" action="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>" method="post">
+	<form class="modifprofil" action="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"  method="post">
 
 
         <div class="form-group row">
@@ -27,7 +27,7 @@ foreach ($données as $donnée) { ?>
 
         <div class="form-group row">
             <label for="staticPhone" class="col-sm-2 col-form-label">Téléphone:</label>
-		<input type="text" name="téléphone" id="téléphone" value="<?php echo $donnée['utilisateurs_num'] ?>">
+		<input type="text" name="telephone" id="téléphone" value="<?php echo $donnée['utilisateurs_num'] ?>">
 		<?php echo form_error('telephone') ?>
         </div>
 
@@ -53,6 +53,5 @@ foreach ($données as $donnée) { ?>
 		<br><input type="submit" class="buttonmodifier" name="submitedit" value="Enregistrer">
 	</form>
 </div>
-	<?php
-}
-?>
+
+
