@@ -14,8 +14,8 @@ echo validation_errors();
             <fieldset id="test" class="test">
                 <h2 class="fs-title">Diplomes/Formations</h2>
                 <h3 class="fs-subtitle">Etape 1</h3>
-                <input type="text" name="titre" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('titre', '', ''); }else{echo 'Titre';} ?>">
-                <textarea name="description" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('description', '', ''); }else{echo 'description';} ?>"></textarea>
+                <input type="text" name="titre" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('titre', '', ''); }else{echo 'Nom du diplome/formation';} ?>">
+                <textarea name="description" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('description', '', ''); }else{echo 'Description';} ?>"></textarea>
                 <label class="niveau">Niveau</label>
                 <select name="niveau" class="select">
                     <!--changer BDD int formation_niv-->
@@ -44,8 +44,8 @@ echo validation_errors();
             <fieldset class="test2">
                 <h2 class="fs-title">Experiences</h2>
                 <h3 class="fs-subtitle">Vos experiences significatives</h3>
-                <input type="text" name="titre2" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('titre2', '', ''); }else{echo 'Titre';} ?>" />
-                <textarea name="description2" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('description', '', ''); }else{echo 'description';} ?>"></textarea>
+                <input type="text" name="titre2" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('titre2', '', ''); }else{echo 'Nom du poste';} ?>" />
+                <textarea name="description2" placeholder="<?php if (isset($_POST['submit'])){ echo form_error('description', '', ''); }else{echo 'Description';} ?>"></textarea>
                 <label class="anciennete">Ancienneté</label>
                 <select name="anciennete">
                     <option>Moins d'1 an</option>
@@ -82,7 +82,7 @@ echo validation_errors();
                     }
                     ?>
                 </select>
-                <label class="niveau">Niveau</label>
+                <label class="niveau">Niveau /10</label>
                 <select name="niveau2">
                     <!--changer BDD int formation_niv-->
                     <option value="1">1</option>
