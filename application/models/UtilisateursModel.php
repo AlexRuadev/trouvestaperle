@@ -57,7 +57,7 @@ class UtilisateursModel extends CI_Model {
 		//on détermine l'insertion des valeurs dans ce formulaire
 
 			$datas = array(
-				'utilisateurs_nom' => $data_form['nom'],
+				'utilisateurs_nom' => ucfirst($data_form['nom']),
 				'utilisateurs_prenom' => $data_form['prenom'],
 				'utilisateurs_mail' => $data_form['mail'],
 				'utilisateurs_num' => $data_form['telephone'],
@@ -85,7 +85,7 @@ class UtilisateursModel extends CI_Model {
 			$email = $data_form['mail'];
 			$password = password_hash($data_form['password'], PASSWORD_DEFAULT);
 			$datas = array(
-				'utilisateurs_nom' => $nom,
+				'utilisateurs_nom' => ucfirst($nom),
 				'utilisateurs_prenom' => $prenom,
 				'utilisateurs_mail' => $email,
 				'utilisateurs_motdepasse' => $password,
