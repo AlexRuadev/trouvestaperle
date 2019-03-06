@@ -51,7 +51,7 @@ class ExperienceModel extends CI_Model {
 
         $data = array(
             "experiences_titre" => $data_form2['titre2'],
-            "experiences_description" => $data_form2['anciennete'],
+            "experiences_description" => $data_form2['description2'],
             "experiences_niv" => $data_form2['anciennete'],
             "experiences_debut" => $data_form2['debutExperience'],
             "experiences_fin" => $data_form2['finExperience'],
