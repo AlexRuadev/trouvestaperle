@@ -37,12 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?php if (isset($_POST['btnsignin'])){ $error['password'] = form_error('password'); echo $error['password'];}else{} ?>
                                 </div>
                                 <div class="group">
-                                    <input type="submit" class="button" value="Sign In" name="btnsignin">
+                                    <input type="submit" class="button" value="Me connecter" name="btnsignin">
                                 </div>
                                 <div class="hr"></div>
-                                <div class="foot-lnk">
-                                    <a href="#forgot" class="mdpoublie">Forgot Password?</a>
-                                </div>
 								</form>
                             </div>
 
@@ -70,11 +67,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div class="group">
                                     <label for="passwordup" class="label">Comfirmation Mot de Passe</label>
-                                    <input id="passwordup" type="password1" class="input" name="password1">
+                                    <input id="passwordup" type="password" class="input" name="password1">
                                     <?php if (isset($_POST['btnsignup'])){ echo form_error('password1'); }else{} ?>
                                 </div>
                                 <div class="group">
-                                    <input type="submit" class="button" value="Sign Up">
+                                    <input type="submit" class="button" value="M'inscrire">
                                 </div>
 
                                 <div class="foot-lnk">
