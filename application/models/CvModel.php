@@ -9,11 +9,11 @@ class CvModel extends CI_Model {
 		$this->table = "ttp_cv";
 	}
 
-function get_all()
-{
-return $this->db->from($this->table)->get();
-}
-
+	//Recupère tous les cv pour l'api
+    function get_all()
+    {
+        return $this->db->from($this->table)->get();
+        }
 	//Récupère tous les cv
 	function get_all_cv($id)
 	{

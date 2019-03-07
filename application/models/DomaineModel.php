@@ -9,11 +9,12 @@ class DomaineModel extends CI_Model {
         $this->table = "ttp_domaines";
     }
 
-    //Recupere toute les domaines
+    //Recupere toute les domaines pour l'api
     function get_all_do()
     {
         return $this->db->get($this->table);
     }
+    //Recupere toute les domaines
     public function all_domaines()
     {
         $query = $this->db->get('ttp_domaines');

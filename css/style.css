@@ -746,22 +746,23 @@ textarea {
 /*PROFIL*/
 
 .buttonmodifier {
-    background: #5E9BFC;
+    background: #27AE60;
     padding: 1em 2em;
     color: white;
     border: 1px;
     border-radius: 5px;
     font-size: 1em;
+
 }
 
 .buttonmodifier:hover {
-    background: #1368F0;
+    background: #208f4f;
     transition: .5s;
     border-radius: 5px;
 }
 
 .header {
-    background-color: #5E9BFC;
+    background-color: #27AE60;
     color: white;
     font-size: 1.5em;
     padding: 1rem;
@@ -773,7 +774,6 @@ textarea {
     position: relative;
     height: auto;
     background-color: #fff;
-    opacity: 0.8;
     text-align: center;
     margin-bottom: 15px;
 }
@@ -785,7 +785,7 @@ img {
 }
 
 .table-users {
-    border: 1px solid #5E9BFC;
+    border: 1px solid #27AE60;
     border-radius: 10px;
     box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
     max-width: calc(100% - 2em);
@@ -798,7 +798,7 @@ table {
     width: 100%;
 }
 td, th {
-    color: #1368F0;
+    color: #0bae2a;
     padding: 15px;
 }
 
@@ -809,7 +809,9 @@ td {
     font-weight: bold;
 }
 
-
+.usercolor{
+    color: #4F5155;
+}
 
 th {
     background-color: #5E9BFC;
@@ -834,18 +836,17 @@ tr {
     margin-bottom: 200px;
 }
 .profilInput{
-    color: #1368F0;
+    color: #4F5155;
     font-size:18px;
     padding:10px 10px 10px 5px;
     display:block;
     width:300px;
     border:none;
-    border-bottom:1px solid #5E9BFC;
+    border-bottom:1px solid #27AE60;
 }
 .profilInput:focus , input:valid 		{
     top:-20px;
     font-size:14px;
-    color:#5E9BFC;
 }
 
 .js-unhighlight-label {
@@ -859,7 +860,7 @@ tr {
     width:0;
     bottom:1px;
     position:absolute;
-    background:#5E9BFC;
+    background:#27AE60;
     transition:0.2s ease all;
     -moz-transition:0.2s ease all;
     -webkit-transition:0.2s ease all;

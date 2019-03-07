@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 ?>
 
 	<div class="contain">
@@ -13,37 +14,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <tr>
                         <td>Nom :</td>
-                        <td><?php echo $donnée['utilisateurs_nom'] ?></td>
+                        <td class="usercolor"><?php echo $donnée['utilisateurs_nom'] ?></td>
                     </tr>
 
                     <tr>
                         <td>Prénom :</td>
-                        <td><?php echo $donnée['utilisateurs_prenom'] ?></td>
+                        <td class="usercolor"><?php echo $donnée['utilisateurs_prenom'] ?></td>
 
                     </tr>
 
                     <tr>
                         <td>Email :</td>
-                        <td><?php echo $donnée['utilisateurs_mail'] ?></td>
+                        <td class="usercolor"><?php echo $donnée['utilisateurs_mail'] ?></td>
                     </tr>
 
                     <tr>
                         <td>Téléphone :</td>
-                        <td><?php echo $donnée['utilisateurs_num'] ?></td>
+                        <td class="usercolor"><?php if(isset($donnée['utilisateurs_num'])){ echo $donnée['utilisateurs_num']; }else{
+                                echo "Champ non renseigner.";} ?>
+                        </td>
 
                     </tr>
 
                     <tr>
                         <td>Date de Naissance:</td>
-                        <td><?php echo strftime('%d/%m/%Y',strtotime($donnée['utilisateurs_naissance']))?></td>
+                        <td class="usercolor"><?php echo strftime('%d/%m/%Y',strtotime($donnée['utilisateurs_naissance']))?></td>
                     </tr>
                     <tr>
                         <td>Code postal :</td>
-                        <td><?php echo $donnée['utilisateurs_codepostal'] ?></td>
+                        <td class="usercolor"><?php echo $donnée['utilisateurs_codepostal'] ?></td>
                     </tr>
                     <tr>
                         <td>Permis :</td>
-                        <td><?php echo $donnée['utilisateurs_permis'];?></td>
+                        <td class="usercolor"><?php if(isset($donnée['utilisateurs_num'])){ echo $donnée['utilisateurs_permis'];}else{
+                            echo "Champ non renseigner.";} ?></td>
                     </tr>
                 </table>
                 <div class="modifbutton"><a class="block-center" href="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"><button              class="buttonmodifier ">Modifier</button></a></div>
