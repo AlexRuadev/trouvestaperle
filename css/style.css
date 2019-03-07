@@ -747,11 +747,11 @@ textarea {
 
 .buttonmodifier {
     background: #5E9BFC;
-
     padding: 1em 2em;
     color: white;
     border: 1px;
     border-radius: 5px;
+    font-size: 1em;
 }
 
 .buttonmodifier:hover {
@@ -760,15 +760,152 @@ textarea {
     border-radius: 5px;
 }
 
+.header {
+    background-color: #5E9BFC;
+    color: white;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.modifbutton{
+    width: 100%;
+    position: relative;
+    height: auto;
+    background-color: #fff;
+    opacity: 0.8;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.table-users {
+    border: 1px solid #5E9BFC;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    max-width: calc(100% - 2em);
+    margin: 1em auto;
+    overflow: hidden;
+    width: 800px;
+}
+
+table {
+    width: 100%;
+}
+td, th {
+    color: #1368F0;
+    padding: 15px;
+}
+
+td {
+    text-align: left;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+th {
+    background-color: #5E9BFC;
+    font-weight: 300;
+    width: 50%;
+
+}
+
+
+tr {
+    width: 100%;
+    padding: 10px 0;
+    position: relative;
+}
+
+
+
 /*MODIFPROFIL*/
 
 .modifprofil {
     margin-top: 200px;
     margin-bottom: 200px;
 }
+.profilInput{
+    color: #1368F0;
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #5E9BFC;
+}
+.profilInput:focus , input:valid 		{
+    top:-20px;
+    font-size:14px;
+    color:#5E9BFC;
+}
 
 .js-unhighlight-label {
     color: black;
+}
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+    content:'';
+    height:2px;
+    width:0;
+    bottom:1px;
+    position:absolute;
+    background:#5E9BFC;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+}
+.bar:before {
+    left:50%;
+}
+.bar:after {
+    right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position:absolute;
+    height:60%;
+    width:100px;
+    top:25%;
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from { background:#5E9BFC; }
+    to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+    from { background:#5E9BFC; }
+    to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:#5E9BFC; }
+    to 	{ width:0; background:transparent; }
 }
 
 
