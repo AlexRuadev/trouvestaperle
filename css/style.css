@@ -48,6 +48,17 @@ body {
 
 
 
+.usernamenavbar {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #5E9BFC;
+}
+
+
+#top-social-menu li .deconnexion:hover {
+    color: red;
+}
+
 #top-social-menu {
     display: none;
 }
@@ -205,7 +216,7 @@ body {
 #top-social-menu li a:hover {
     text-decoration: none;
     color: #5E9BFC;
-    transition: .5s;
+    transition: .3s;
 }
 
 #top-social-menu i {
@@ -778,11 +789,6 @@ textarea {
     margin-bottom: 15px;
 }
 
-img {
-    border-radius: 50%;
-    height: 60px;
-    width: 60px;
-}
 
 .table-users {
     border: 1px solid #27AE60;
@@ -833,7 +839,7 @@ tr {
 
 .modifprofil {
     margin-top: 200px;
-    margin-bottom: 200px;
+    margin-bottom:150px;
 }
 .profilInput{
     color: #4F5155;

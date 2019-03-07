@@ -51,8 +51,8 @@
 					<!--Ne s'affiche que si une session est ouverte-->
 							<?php if (isset($_SESSION['utilisateurs_prenom'])) {
 								echo '
-					<li>Bonjour ' . $_SESSION['utilisateurs_prenom'] . '</li>
-                    <li><a href="' . base_url('Utilisateurs/deconnexionUser') . '">Deconnexion</a></li>';
+					<li >Bonjour ' .'<span class="usernamenavbar">'. $_SESSION['utilisateurs_prenom'] . '</span>'.'</li>
+                    <li ><a class="deconnexion" href="' . base_url('Utilisateurs/deconnexionUser') . '">Déconnexion</a></li>';
 								}
 							?>
                 </ul>

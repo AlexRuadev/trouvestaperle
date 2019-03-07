@@ -58,7 +58,7 @@ class UtilisateursModel extends CI_Model {
 
 			$datas = array(
 				'utilisateurs_nom' => ucfirst($data_form['nom']),
-				'utilisateurs_prenom' => $data_form['prenom'],
+				'utilisateurs_prenom' => ucfirst($data_form['prenom']),
 				'utilisateurs_mail' => $data_form['mail'],
 				'utilisateurs_num' => $data_form['telephone'],
 				'utilisateurs_codepostal' => $data_form['codepostal'],
@@ -86,7 +86,7 @@ class UtilisateursModel extends CI_Model {
 			$password = password_hash($data_form['password'], PASSWORD_DEFAULT);
 			$datas = array(
 				'utilisateurs_nom' => ucfirst($nom),
-				'utilisateurs_prenom' => $prenom,
+				'utilisateurs_prenom' => ucfirst($prenom),
 				'utilisateurs_mail' => $email,
 				'utilisateurs_motdepasse' => $password,
 				'utilisateurs_token' => bin2hex(random_bytes(100)),

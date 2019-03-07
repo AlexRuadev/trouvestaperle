@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td>Nom :</td>
                     <td>
                         <input type="text" name="nom" class="profilInput" id="nom" value="<?php echo $donnée['utilisateurs_nom'] ?>">
-                        <?php echo form_error('nom') ?>
+                        <?php echo form_error('nom'); ?>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         </td>
@@ -26,8 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tr>
                     <td>Prénom :</td>
                     <td>
-                        <input type="text" name="prenom" class="profilInput" id="nom" value="<?php echo $donnée['utilisateurs_prenom'] ?>">
-                        <?php echo form_error('prenom') ?>
+                        <input type="text" name="prenom" class="profilInput" id="nom" value="<?php if (isset( $donnée['utilisateurs_prenom'])){ echo $donnée['utilisateurs_prenom']; }else{
+                            echo "Champ non renseigner.";} ?>">
+                        <?php echo form_error('prenom'); ?>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                     </td>
@@ -37,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td>Email :</td>
                     <td>
                         <input type="text" name="mail" class="profilInput" id="nom" value="<?php echo $donnée['utilisateurs_mail'] ?>">
-                        <?php echo form_error('mail') ?>
+                        <?php echo form_error('mail'); ?>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                     </td>
@@ -47,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td>Téléphone :</td>
                     <td>
                         <input type="text" name="telephone" class="profilInput" id="nom" value="<?php echo $donnée['utilisateurs_num'] ?>">
-                        <?php echo form_error('telephone') ?>
+                        <?php echo form_error('telephone'); ?>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                     </td>
@@ -56,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td>Date de Naissance:</td>
                     <td>
                         <input type="date" name="naissance" class="profilInput" id="nom" value="<?php echo $donnée['utilisateurs_naissance'] ?>">
-                        <?php echo form_error('naissance') ?>
+                        <?php echo form_error('naissance'); ?>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                     </td>
@@ -65,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td>Code postal :</td>
                     <td>
                         <input type="text" name="codepostal" class="profilInput" id="nom" value="<?php echo $donnée['utilisateurs_codepostal'] ?>">
-                        <?php echo form_error('codepostal') ?>
+                        <?php echo form_error('codepostal'); ?>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                     </td>
@@ -74,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td>Permis :</td>
                     <td>
                         <input type="text" name="permis" class="profilInput" id="nom" value="<?php echo $donnée['utilisateurs_permis'] ?>">
-                        <?php echo form_error('permis') ?>
+                        <?php echo form_error('permis'); ?>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                     </td>
