@@ -29,6 +29,47 @@ class Cv extends CI_Controller
         $this->load->view('template/footer');
     }
 
+
+    // Work in progress
+/*    public function listCv(){
+
+        $id = $_SESSION['utilisateurs_id'];
+
+        $cv_id['datas'] = $this->CvModel->get_all_cv($id);
+
+
+        foreach ($cv_id['datas'] as $cv_id['data'])
+        {
+            echo '<pre>';
+            print_r($cv_id['data']);
+            echo '</pre>';
+        }
+
+        $dataCv = $this->CvModel->get_one_cv($id)->result_array();
+
+
+        if(isset($dataCv[0]['cv_id'])) {
+
+
+            $idUti = $dataCv[0]['ttp_utilisateurs_utilisateurs_id'];
+            $idcv = $dataCv[0]['cv_id'];
+
+            echo '<pre>';
+            print_r($idcv);
+            echo '</pre>';
+
+            $result['Uti'] = $this->UtilisateursModel->get_one_uti($idUti)->result_array();
+            $result['comp'] = $this->CompetencesModel->get_one($idcv)->result_array();
+            $result['Form'] = $this->FormationModel->get_one_for($idcv)->result_array();
+            $result['Exp'] = $this->ExperienceModel->get_one_ex($idcv)->result_array();
+            echo '<pre>';
+            print_r($result);
+            echo '</pre>';
+        }
+
+    }*/
+
+
     //Fonction pour enregistrer les valeurs du CV en BDD
     public function formCv(){
 

@@ -17,14 +17,6 @@ class MailController extends CI_Controller
 
 	public function contact()
 	{
-		//On récupère les inputs du formulaire
-		$data_form = $this->input->post(NULL, TRUE);
-
-		//On définit des variables pour les inputs
-		$nom = $data_form['name'];
-		$email = $data_form['email'];
-		$objet = $data_form['subject'];
-		$message = $data_form['message'];
 
 		//Définition des règles
 		$this->form_validation->set_rules('name', 'Nom', 'required');
@@ -32,13 +24,22 @@ class MailController extends CI_Controller
 		$this->form_validation->set_rules('subject', 'Objet', 'required');
 		$this->form_validation->set_rules('message', 'Message', 'required');
 
-
 		//Soumission des formulaires
 		if ($this->form_validation->run() === false){
 			$this->load->view('template/header.php');
 			$this->load->view('welcome_message');
 			$this->load->view('template/footer.php');
 		}else {
+
+
+            //On récupère les inputs du formulaire
+            $data_form = $this->input->post(NULL, TRUE);
+
+            //On définit des variables pour les inputs
+            $nom = $data_form['name'];
+            $email = $data_form['email'];
+            $objet = $data_form['subject'];
+            $message = $data_form['message'];
 			//Configuration des paramètres pour la librairies email
 			$config = array(
 				'protocol' => 'smtp',
@@ -64,7 +65,29 @@ class MailController extends CI_Controller
 			$this->email->message($message);
 
 			$this->email->send();
-		}
+
+            $data['alertsucces'] =
+                '
+					<div class="alert alert-success" role="alert">
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  <strong>Bravo!</strong> Votre message à bien été envoyée!
+					</div>
+					<script >
+					window.setTimeout(function() {
+						$(".alert").fadeTo(500, 0).slideUp(500, function(){
+							$(this).remove(); 
+						});
+					}, 4000);
+					</script>
+		
+				';
+
+
+            $this->load->view('template/header.php');
+            $this->load->view('welcome_message', $data);
+            $this->load->view('template/footer.php');
+
+        }
 
 	}
 

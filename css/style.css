@@ -773,9 +773,10 @@ textarea {
 }
 
 .header {
-    background-color: #27AE60;
+    background-color: #5E6474;
     color: white;
     font-size: 1.5em;
+    opacity: 0.7;
     padding: 1rem;
     text-align: center;
     text-transform: uppercase;
@@ -791,7 +792,7 @@ textarea {
 
 
 .table-users {
-    border: 1px solid #27AE60;
+    border: 1px solid #5E6474;
     border-radius: 10px;
     box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
     max-width: calc(100% - 2em);
@@ -804,7 +805,7 @@ table {
     width: 100%;
 }
 td, th {
-    color: #0bae2a;
+    color: #5E6474;
     padding: 15px;
 }
 
@@ -820,7 +821,7 @@ td {
 }
 
 th {
-    background-color: #5E9BFC;
+    background-color: #5E6474;
     font-weight: 300;
     width: 50%;
 
@@ -848,7 +849,7 @@ tr {
     display:block;
     width:300px;
     border:none;
-    border-bottom:1px solid #27AE60;
+    border-bottom:1px solid #5E6474;
 }
 .profilInput:focus , input:valid 		{
     top:-20px;

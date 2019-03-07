@@ -87,7 +87,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 
 </section>
+<?php
+if (isset($alertsucces)) {
+    echo $alertsucces;
+}else{
 
+}
+?>
 <div class="container" id="contact">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
