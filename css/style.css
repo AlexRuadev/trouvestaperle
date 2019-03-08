@@ -752,6 +752,10 @@ textarea {
     color: #5e9bfc;
 }
 
+.alert-success {
+    text-align: center;
+}
+
 /*END CONTACT*/
 
 /*PROFIL*/

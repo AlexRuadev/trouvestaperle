@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <tr>
                         <td>Téléphone :</td>
                         <td class="usercolor"><?php if(isset($donnée['utilisateurs_num'])){ echo $donnée['utilisateurs_num']; }else{
-                                echo "Champ non renseigner.";} ?>
+                                echo "Champ non renseigné";} ?>
                         </td>
 
                     </tr>
@@ -42,12 +42,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </tr>
                     <tr>
                         <td>Code postal :</td>
-                        <td class="usercolor"><?php echo $donnée['utilisateurs_codepostal'] ?></td>
+                        <td class="usercolor"><?php if(isset($donnée['utilisateurs_codepostal'])) { echo $donnée['utilisateurs_codepostal'];}
+                        else { echo "Champ non renseigné";} ?></td>
                     </tr>
                     <tr>
                         <td>Permis :</td>
                         <td class="usercolor"><?php if(isset($donnée['utilisateurs_num'])){ echo $donnée['utilisateurs_permis'];}else{
-                            echo "Champ non renseigner.";} ?></td>
+                            echo "Champ non renseigné";} ?></td>
                     </tr>
                 </table>
                 <div class="modifbutton"><a class="block-center" href="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"><button              class="buttonmodifier ">Modifier</button></a></div>

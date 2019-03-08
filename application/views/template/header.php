@@ -43,7 +43,6 @@
             </div>
             <div class="top-social">
                 <ul id="top-social-menu">
-                    <li><a href="#"><i class="fa fa-google"></i></a></li>
 
                     <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>

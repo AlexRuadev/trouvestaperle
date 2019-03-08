@@ -70,7 +70,7 @@ class MailController extends CI_Controller
                 '
 					<div class="alert alert-success" role="alert">
 						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						  <strong>Bravo!</strong> Votre message à bien été envoyée!
+						  <strong>Bravo!</strong> Votre message à bien été envoyé!
 					</div>
 					<script >
 					window.setTimeout(function() {
