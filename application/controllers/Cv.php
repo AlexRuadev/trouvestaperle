@@ -7,6 +7,7 @@
  */
 class Cv extends CI_Controller
 {
+    //Charge les models , librairies, helper
     public function __construct()
     {
         parent::__construct();
@@ -22,6 +23,7 @@ class Cv extends CI_Controller
         $this->load->model("UtilisateursModel");
 
     }
+    //Affiche la page success
     public function affichageSuccess(){
 
         $this->load->view('template/header');
@@ -30,7 +32,7 @@ class Cv extends CI_Controller
     }
 
 
-    // Work in progress
+    // Work in progress pour lister les cv
 /*    public function listCv(){
 
         $id = $_SESSION['utilisateurs_id'];

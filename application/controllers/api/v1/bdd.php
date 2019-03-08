@@ -16,6 +16,7 @@ class bdd extends CI_Controller {
 
     }
 
+    //Requete pour l'api , transformation en fichier json
     public function index()
     {
         $data = $this->CvModel->get_all();
@@ -28,6 +29,7 @@ class bdd extends CI_Controller {
         }
     }
 
+    //Requete pour l'api
     public function view($id)
     {
 

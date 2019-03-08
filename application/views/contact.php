@@ -1,4 +1,6 @@
-
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!--Section: Contact v.2-->
 
 <section class="mb-4">

@@ -42,6 +42,7 @@ class Utilisateurs extends CI_Controller
 		}
 	}
 
+	//Permet la modification du profil
 	public function modifProfil($id)
 	{
 		//on vérifie si la session existe

@@ -26,7 +26,7 @@ class ExperienceModel extends CI_Model {
         return $this->db->get();
     }
 
-
+    //Insertion des expériences en BDD
     function create_experience($cv_id)
     {
 

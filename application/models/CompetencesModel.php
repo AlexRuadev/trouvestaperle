@@ -10,11 +10,12 @@ class CompetencesModel extends CI_Model {
         $this->jointable = "ttp_uc";
     }
 
-    //Recupere toutes les competences
+    //Recupere toutes les données de la table
     function get_all()
     {
         return $this->db->get($this->table);
     }
+    //Recupere toutes les competences
     public function all_competences()
     {
         $query = $this->db->get('ttp_competences');

@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 class Confirmcv{
+
 	public function confirmationcv()
 	{
 		//Configuration des paramètres pour la librairies email

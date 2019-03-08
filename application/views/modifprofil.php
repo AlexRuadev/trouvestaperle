@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <div class="contain">
+    <!--Formulaire  de modification du profil -->
     <form class="modifprofil" action="<?php echo base_url(); ?>Utilisateurs/modifProfil/<?php echo $_SESSION['utilisateurs_id'] ?>"  method="post">
     <div class="modifprofil">
 

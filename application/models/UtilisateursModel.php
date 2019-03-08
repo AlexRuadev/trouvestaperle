@@ -104,6 +104,7 @@ class UtilisateursModel extends CI_Model {
 	}
 
 
+	//Récuperes l'id utilisateur
     function get_one_uti($utilisateurs_id)
     {
         $this->db->select('*')
@@ -113,6 +114,7 @@ class UtilisateursModel extends CI_Model {
 
         return $this->db->get();
     }
+    /* Recupères toutes les données de la table utilisateur*/
     function get_all_uti()
     {
         return $this->db->get($this->table);

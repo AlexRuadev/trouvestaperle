@@ -1,6 +1,8 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+
+<!-- Affichage de la page success apres validation du formulaire -->
 <div class="vide"></div>
 <div class="conf-modal center success">
     <div class="title-icon">

@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			?>
         </div>
 
-
+<!-- Modal inscription/connexion  -->
     <div id="simpleModal" class="modal">
                 <div class="login-wrap">
                     <div class="login-html">
@@ -94,6 +94,8 @@ if (isset($alertsucces)) {
 
 }
 ?>
+
+<!-- Formulaire de contact-->
 <div class="container" id="contact">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">

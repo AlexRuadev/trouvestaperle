@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <section class="full-width-img">
     <div class="margeform">
